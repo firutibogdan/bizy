@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<title>Bizy</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rubik&display=swap">
+<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+
+<style>
+
+/******************
+    General
+*******************/
+
+div.gallery {
+  margin: 5px;
+  border: 1px solid #ccc;
+  float: left;
+  width: 180px;
+}
+
+div.gallery:hover {
+  border: 1px solid #777;
+}
+
+div.gallery img {
+  width: 100%;
+  height: auto;
+}
+
+div.desc {
+  padding: 15px;
+  text-align: center;
+}
+
+body,h2,h3,h4,h5,h6 {font-family: "Rubik", sans-serif;}
+body, html{
+  height: 100%;
+  /* background-color: #b3ccff; */
+  background-image: url("./resources/cards.jpg");
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #442C2E;
+  line-height: 1.8;
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+p {
+  text-align: justify;
+  font-size: 1.2em;
+  color: rgb(92, 92, 92);
+}
+.heading1 {
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.w3-container {
+  background-color: rgb(255, 251, 250);
+  margin-top: 4em;
+  padding: 5em;
+}
+
+.container-cut {
+  clip-path: 
+  inset(5px round 20px);
+}
+
+.milestone {
+  font-size: 15px;
+  color: #94b8b8;
+}
+
+/******************
+    Background
+*******************/
+
+.bgimg-1, .bgimg-2, .bgimg-3, .bgimg-4, .bgimg-5, .bgimg-6, .bgimg-7, .bgimg-8 {
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.bgimg-1 {
+  background-image: url("./resources/bg.jpg");
+  background-size: cover;
+  min-height: 100%;
+}
+
+
+/******************
+    Navigation
+*******************/
+
+.home-nav {
+  font-family: 'Rubik', sans-serif;
+  font-size: 1.5em;
+  font-weight: bold;
+  z-index: -1;
+}
+
+.w3-top {
+  z-index:10;
+  background-color: #4d88ff;
+  font-size: 1.25em;
+  color: #442C2E;
+}
+
+.w3-bar {
+  -moz-box-shadow:    inset 0 0 10px rgb(131, 86, 86);
+  -webkit-box-shadow: inset 0 0 10px rgb(179, 255, 179)
+  box-shadow:         inset 0 0 10px rgb(179, 255, 179)
+}
+
+.w3-card {
+  box-shadow: none !important;
+}
+
+.w3-white {
+  background-color: #4d88ff !important;
+}
+
+.navbar-item {
+  padding-top: 10px;
+  font-size: 1.25em;
+  color: #442C2E;
+}
+
+.navbar-item:hover, .navbar-item:active {
+  background-color: transparent !important;
+  color: #442C2E;
+}
+
+.navbar-item text {
+  font-size: 0.8em;
+  fill: #442C2E;
+}
+
+.navbar-item:hover circle, .navbar-item:active circle{
+  stroke: rgb(179, 255, 179)
+}
+
+.button-item {
+  padding-top: 10px;
+  font-size: 1.25em;
+  background-color: #4d88ff;
+}
+
+.button-item:hover, .button-item:active {
+  color: #442C2E;
+}
+
+.button-item text {
+  font-size: 1em;
+  fill: #442C2E;
+}
+
+.button-item:hover circle, .button-item:active circle{
+  stroke: rgb(179, 255, 179)
+}
+
+.rest-nav {
+    margin-top: 0.5em;
+}
+/******************
+    Home Section
+*******************/
+#home {
+    font-size: 5em;
+}
+.w3-hover-opacity {cursor: pointer;}
+@media only screen and (max-device-width: 1600px) {
+  .bgimg-1, .bgimg-2, .bgimg-3 {
+    background-attachment: scroll;
+    min-height: 400px;
+  }
+}
+ul {
+    padding-left: 0;
+    counter-reset: index;  
+}
+
+li {
+  counter-increment: index; 
+  display: flex;
+  align-items: center;
+  color: rgb(92, 92, 92);
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+/******************
+    Competition Img
+*******************/
+
+.questionnaire-img {
+  width: 70%;
+  height: 70%;
+}
+
+.column {
+  float: left;
+  width: 33%;
+  padding: 5px;
+}
+
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.column_wireframe {
+  float: left;
+  width: 50%;
+}
+
+/******************
+    Team
+*******************/
+
+.column_1 {
+  float: left;
+  width: 33.3%;
+  margin-bottom: 16px;
+  padding: 0 8px;
+}
+
+.column_2 {
+  float: left;
+  width: 100%;
+  margin-bottom: 16px;
+  padding: 0 8px;
+}
+
+@media screen and (max-width: 650px) {
+  .column_1 {
+    width: 100%;
+    display: block;
+  }
+}
+
+.card_1 {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.container_1 {
+  padding: 0 16px;
+}
+
+.container_1::after, .row_1::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.title_1 {
+  color: grey;
+}
+
+.button_1 {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+}
+
+.button_1:hover {
+  background-color: #555;
+}
+/******************
+    Further
+*******************/
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid rgb(92, 92, 92);
+  margin: 1em 0;
+  padding: 0;
+}
+
+/***
+TIMELINE
+***/
+.timeline {
+  list-style: none;
+  padding: 20px 0 20px;
+  position: relative;
+}
+.timeline:before {
+  top: 0;
+  bottom: 0;
+  position: absolute;
+  content: " ";
+  width: 3px;
+  background-image: url("./resources/bricks.jpeg");;
+  left: 50%;
+  margin-left: -1.5px;
+}
+.timeline > li {
+  display: block;
+  margin-bottom: 20px;
+  position: relative;
+}
+.timeline > li:before,
+.timeline > li:after {
+  content: " ";
+  display: table;
+}
+.timeline > li:after {
+  clear: both;
+}
+.timeline > li:before,
+.timeline > li:after {
+  content: " ";
+  display: table;
+}
+.timeline > li:after {
+  clear: both;
+}
+.timeline > li > .timeline-panel {
+  background-color: #b3ccff;;
+  width: 45%;
+  float: left;
+  border: 1px solid #d4d4d4;
+  border-radius: 2px;
+  padding: 20px;
+  position: relative;
+  -webkit-box-shadow: 0 1px 6px rgba(0, 0, 0, 0.175);
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.175);
+}
+.timeline > li > .timeline-panel:before {
+  position: absolute;
+  top: 26px;
+  right: -15px;
+  display: inline-block;
+  border-top: 15px solid transparent;
+  border-left: 15px solid #ccc;
+  border-right: 0 solid #ccc;
+  border-bottom: 15px solid transparent;
+  content: " ";
+}
+.timeline > li > .timeline-panel:after {
+  position: absolute;
+  top: 27px;
+  right: -14px;
+  display: inline-block;
+  border-top: 14px solid transparent;
+  border-left: 14px solid #fff;
+  border-right: 0 solid #fff;
+  border-bottom: 14px solid transparent;
+  content: " ";
+}
+.timeline > li > .timeline-badge {
+  color: #000;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  font-size: 1.4em;
+  text-align: center;
+  position: absolute;
+  top: 16px;
+  left: 50%;
+  margin-left: -25px;
+  background-color: #999999;
+  z-index: 100;
+  border-top-right-radius: 50%;
+  border-top-left-radius: 50%;
+  border-bottom-right-radius: 50%;
+  border-bottom-left-radius: 50%;
+}
+.timeline > li.timeline-inverted > .timeline-panel {
+  float: right;
+}
+.timeline > li.timeline-inverted > .timeline-panel:before {
+  border-left-width: 0;
+  border-right-width: 15px;
+  left: -15px;
+  right: auto;
+}
+.timeline > li.timeline-inverted > .timeline-panel:after {
+  border-left-width: 0;
+  border-right-width: 14px;
+  left: -14px;
+  right: auto;
+}
+.timeline-badge.primary {
+  background-color: #f3e5f5 !important;
+}
+.timeline-badge.success {
+  background-color: #fce4ec !important;
+}
+.timeline-badge.warning {
+  background-color: #ffcdd2 !important;
+}
+.timeline-badge.danger {
+  background-color: #f8bdd0 !important;
+}
+.timeline-badge.info {
+  background-color: #ef9a9a !important;
+}
+.timeline-title {
+  margin-top: 0;
+  color: inherit;
+}
+.timeline-body > p,
+.timeline-body > ul {
+  margin-bottom: 0;
+}
+.timeline-body > p + p {
+  margin-top: 5px;
+}
+
+</style>
+
+<body>
+
+<div class="w3-top">
+  <div class="w3-bar" id="myNavbar">
+
+      <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-left" href="javascript:void(0);" onclick="toggleFunction()" title="Toggle Navigation Menu">
+        <i class="fa fa-bars"></i>
+      </a>
+
+      <div class="home-nav w3-left w3-hide-medium w3-hide-small" style="display:block; margin: 0 auto;">
+        <svg width="140" height="54" class="navbar-item">
+          <a href="#home">
+            <circle cx="70"
+                    cy="23"
+                    r="15"
+                    stroke="transparent" stroke-width="5"
+                    fill="none"
+                    />
+          
+            <text x="70" y="25"
+                  text-anchor="middle"
+                  alignment-baseline="middle">
+              HOME
+            </text>
+          </a>
+        </svg>
+      </div>
+
+      <div class="rest-nav w3-right w3-hide-medium w3-hide-small" style="display:block; margin: 0 auto;">
+        <svg width="200" height="50" class="navbar-item">
+          <a href="#building_process">
+            <circle cx="100"
+                    cy="25"
+                    r="12"
+                    stroke="transparent" stroke-width="5"
+                    fill="none"
+                    />
+          
+            <text x="100" y="25"
+                  text-anchor="middle"
+                  alignment-baseline="middle">
+              BUILDING PROCESS
+            </text>
+          </a>
+        </svg>
+      </div>
+
+      <div class="rest-nav w3-right w3-hide-medium w3-hide-small" style="display:block; margin: 0 auto;">
+        <svg width="80" height="50" class="navbar-item">
+          <a href="#contact">
+            <circle cx="40"
+                    cy="25"
+                    r="12"
+                    stroke="transparent" stroke-width="5"
+                    fill="none"
+                    />
+          
+            <text x="40" y="25"
+                  text-anchor="middle"
+                  alignment-baseline="middle">
+              TEAM
+            </text>
+          </a>
+        </svg>
+      </div>
+  </div>
+
+  <!-- Navbar on small screens -->
+  <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
+    <a href="#contact" class="w3-bar-item w3-button" onclick="toggleFunction()">TEAM</a>
+    <a href="#building_process" class="w3-bar-item w3-button" onclick="toggleFunction()">BUILDING PROCESS</a>
+  </div>
+</div>
+
+<div class="bgimg-1 w3-display-container" id="home">
+  <div class="w3-display-middle" style="white-space:nowrap;">
+  </div>
+</div>
+
+<!-- Container (About Section) -->
+
+<div class="w3-content w3-container w3-padding-64 container-cut" id="building_process">
+
+	<div class="container">
+	    <div class="heading1">
+		<h1 id="timeline">Building process</h1>
+	    </div>
+	    <ul class="timeline">
+		<li>
+		  <div class="timeline-badge primary"><img src="./resources/paper.png" style="height:40px"></div>
+		  <div class="timeline-panel">
+		    <div class="timeline-heading">
+		      <h4 class="timeline-title"><em><b>Project Description</b></em></h4>
+		    </div>
+		    <div class="timeline-body">
+		      <p><b>Deadline: 19 October 2020</b></p>
+		      <p><i>Bizy: all you need to know about us </i></p>
+		      <svg width="140" height="54" class="button-item">
+			  <a href="#milestone1">
+			    <circle cx="70"
+				    cy="23"
+				    r="15"
+				    stroke="transparent" stroke-width="5"
+				    fill="none"
+				    />
+			  
+			    <text x="70" y="25"
+				  text-anchor="middle"
+				  alignment-baseline="middle">
+			      Read More
+			    </text>
+			  </a>
+			</svg>
+		    </div>
+		  </div>
+		</li>
+	    </ul>
+	</div>
+   </div>
+
+   <div class="w3-content w3-container w3-padding-64 container-cut" id="milestone1">
+
+  	  <p class="milestone">1<sup>st</sup> Milestone</p>
+
+    <h3 class="heading1"><br>Identified problem</h3>
+	    <p>
+        <img src="./resources/problem.png" alt="Bogdan" style="width:20%">
+        <p>Business meetings are the fastest way of growing up your business. Meeting with people means 
+        creating new connections, exchanging ideas and evolving. The problem is that you meet new 
+        people whose names you forget the next second you hear. Moreover, people exchange information 
+        regarding their phone, email or even Facebook profile and all are kept on small paper, plastic 
+        or even metal cards. They look very beautiful and professional, but they end up in a drawer, 
+        sometimes these even end up in the closest trash. Most of the time, you just save the number in 
+        your phone, but what if you really need to friends that card in order to see which company the 
+        person you are looking for is working, or even his position. You get all the cards from your 
+        drawer and try to find the one you are looking for. Moreover, the material used for crafting 
+        them harms the environment: paper means trees cut down, plastic means pollution and same goes for metal.</p>
+        <p>Another problem identified is beeing at a social gathering where you meet new people, or even known people, 
+        you socialize and at the end you realise that you have been chatting with someone all night and you did not 
+        exchange phone numbers or even Facebook progiles. This is the moment when you realise that you can not keep 
+        in touch with that person until the next gathering (maybe).</p>
+      </p>
+
+    <h3 class="heading1"><br>Proposed solution</h3>
+    <p>
+      <img src="./resources/solution.png" alt="Bogdan" style="width:20%">
+      <p><b>Bizy</b> is a cross-platform application that allows you to exchange personal data with somebody else in a 
+      simple and fast manner. Just by touching your phone, all the data you need is automatically sent: name, 
+      phone, email, facebook, twitter, linkedin, skype, company, job, address of company, office and anything else 
+      that comes to your mind, using the additional data field.</p>
+      <p>Bizy would be useless if we did not integrate a fast searching engine through data. You can search using 
+      keywords that match all the fields mentioned above. </p>
+      <p>One more feature must me mentioned. Beeing at a party with lots of new people means lots of socialising. 
+      It probably happened to anyone to chat with random people and at the end to forget to ask for their 
+      contact info. Now, with <b>Bizy</b>, people that go to a certain event that want to be discovered by 
+      other people can choose to exchange data with the rest of the people from the party. This means that 
+      at the end of the gathering, even if you forgot to ask that pretty girl's phone number, you still have 
+      a chance to find her in your <i>Maybe you know</i> list. </p>
+      <p>Bizy can be simply used by anyone, even if they are teens or adults, even if they are students. Anyone 
+      can create their profile and exchange data. </p>
+      <p>Our product is oriented in saving the environment. By using <b>Bizy</b>, the consumption of the 
+      materials that business cards are crafted from will drop and an increase in productivity will be 
+      spotted. The application brings lots of gains both for people and environment. </p>
+    </p>
+
+
+	<!-- Customer Segment -->
+    <h3 class="heading1"><br>Targeted customer segment</h3>
+      <img src="./resources/customers.png" alt="Bogdan" style="width:20%">
+	    <p>
+        The targeted segment is the business segment because business meetings end up with cards 
+      exchanges. This segment can benefit from our fast exchange application that will increase their 
+      productivity.
+      </p>
+      <p>
+        But the business segment is not the only one targeted by <b>Bizy</b>. Anyone can use our application 
+      because it is easy and has an intuitive interface. Even if you are a student, maybe at an interview 
+      you have the occasion to exchange data with your interviewer, or maybe you meet someone at a 
+      social event that gets interested in your background experience and it end up with you beeing hired. 
+      The application will help you exchange data with anyone and will increase your professionalism.
+      </p>
+
+	  <h3 class="heading1"><br>Competition</h3>
+	  <br />
+
+	  <div class="row">
+	    <div class="column">
+        <img src="./resources/card.png" alt="Classic business cards" style="height:100px">
+        <p>Classical business cards</p>
+	    </div>
+	    <div class="column">
+        <a href="https://www.abbyy.com/products/mobile/business-card-reader/en/">
+            <img src="./resources/abbyy.png" alt="Abbyy" style="height:100px">
+        </a>
+        <p>ABBYY Business Card Reader</p>
+      </div>
+      <div class="column">
+        <a href="https://www.camcard.com/">
+            <img src="./resources/camcard.png" alt="CamCard" style="height:100px">
+        </a>
+        <p>CamCard</p>
+	    </div>
+	  </div>
+
+	  <div class="row">
+	    <div class="column">
+        <a href="https://play.google.com/store/apps/details?id=com.app.cardhq&hl=en_US&gl=US">
+            <img src="./resources/cardhq.png" alt="CardHQ" style="height:70px">
+        </a>
+        <p>CardHQ</p>
+	    </div>
+	    <div class="column">
+        <a href="https://www.scanbizcards.com/">
+            <img src="./resources/scanbizcards.png" alt="ScanBizCards" style="height:50px">
+        </a>
+        <p>ScanBizCards</p>
+      </div>
+      <div class="column">
+        <img src="./resources/others.jpg" alt="ScanBizCards" style="height:120px">
+	    </div>
+	  </div>
+
+	  <h3 class="heading1"><br>Our advantages</h3>
+    <img src="./resources/advantages.png" alt="Bogdan" style="width:20%">
+	  <ul>
+	    <li>1. NFC technology that allows fast exchange of data</li>
+	    <li>2. PeopleAround technology that allows you to collect data from people around</li>
+      <li>3. Fast search engine that allows you to search using keyords from all available fields</li>
+      <li>4. Complex profile that allows you to add Facebook, Twitter, Skype, GitHub, LinkedIn and even your personal blog</li>
+	  </ul>
+
+
+	  <h3 class="heading1"><br>Key metrics</h3>
+    <img src="./resources/metrics.png" alt="Bogdan" style="width:20%">
+    <ul>
+        <li>1. How fast is the data transfer? </li>
+        <li>2. How easy is the data transfer? </li>
+        <li>3. How easy is the application usage? </li>
+        <li>4. How fast is the search engine? </li>
+        <li>5. How protected is your data using PeopleAround? </li>
+        <li>6. How good is the AI predictor that suggests people after using PeopleAround? </li>
+        <li>7. How many people download&use the application? </li>
+        <li>8. What is the average age of people interested in our application? </li>
+    </ul>
+	    
+	  <h3 class="heading1"><br>Cost structure</h3>
+	  <img src="./resources/costs.png" alt="Bogdan" style="width:20%">
+	  <p> Regarding costs, we have to mention fixed and variable costs. Since we are at the beginning, 
+      variable costs are absent, but we still have some fixed costs that imply, mainly, the 
+      development of the application.
+    </p>
+	    
+	  <ul>
+      <div class="row_1">
+        <div class="column_2">
+          <h4>Fixed costs</h4>
+          <h9>Rent, Utilities, Maintenance</h9>
+          <div class="progress" style="width:100%">
+            <div class="progress-bar progress-bar-striped active" style="width:0%">0%</div>
+          </div>
+          <h9>Hardware</h9>
+          <div class="progress" style="width:100%">
+            <div class="progress-bar progress-bar-striped active" style="width:20%">20%</div>
+          </div>
+          <h9>Software (licenses, subscriptions)</h9>
+          <div class="progress" style="width:100%">
+            <div class="progress-bar progress-bar-striped active" style="width:20%">20%</div>
+          </div>
+          <h9>Marketing & Advertisement</h9>
+          <div class="progress" style="width:100%">
+            <div class="progress-bar progress-bar-striped active" style="width:50%">50%</div>
+          </div>
+          <h9>Bank charges</h9>
+          <div class="progress" style="width:100%">
+            <div class="progress-bar progress-bar-striped active" style="width:10%">10%</div>
+          </div>
+        </div>
+      </div>
+	  </ul>
+    
+	  <h3 class="heading1"><br>Revenue streams</h3>
+	  <img src="./resources/revenue.png" alt="Bogdan" style="width:20%">
+	  <p> Main sources of revenue are:</p>  
+
+	  <ul>
+      <div class="row_1">
+        <div class="column_2">
+          <h9>Free trial application download (10 contacts can be added)</h9>
+          <div class="progress" style="width:100%">
+            <div class="progress-bar progress-bar-striped active" style="width:0%">0%</div>
+          </div>
+          <h9>Partners that want the application for their employees</h9>
+          <div class="progress" style="width:100%">
+            <div class="progress-bar progress-bar-striped active" style="width:10%">10%</div>
+          </div>
+          <h9>Extend contact limit with certain amount</h9>
+          <div class="progress" style="width:100%">
+            <div class="progress-bar progress-bar-striped active" style="width:25%">25%</div>
+          </div>
+          <h9>Application with no limits and no advertisements</h9>
+          <div class="progress" style="width:100%">
+            <div class="progress-bar progress-bar-striped active" style="width:25%">25%</div>
+          </div>
+          <h9>Advertisements from the free application</h9>
+          <div class="progress" style="width:100%">
+            <div class="progress-bar progress-bar-striped active" style="width:40%">40%</div>
+          </div>
+        </div>
+      </div>
+	  </ul>
+</div>
+
+<div class="w3-content w3-container w3-padding-64 container-cut" id="contact">
+  <div class="heading1">Our Team</div>
+  <div class="row_1">
+    <div class="column_1">
+      <div class="card_1">
+        <img src="./resources/bf.jpg" alt="Bogdan" style="width:100%">
+        <div class="container_1">
+          <h3>Bogdan-Cristian FIRU&#354;I</h2>
+          <p class="title_1">Project Manager</p>
+          <p></p>
+          <p><button class="button_1" onclick="window.open('mailto:firutibogdan@gmail.com');">Contact</button></p>
+        </div>
+      </div>
+    </div>
+    <div class="column_1">
+      <div class="card_1">
+        <img src="./resources/im.jpg" alt="Ionut" style="width:100%">
+        <div class="container_1">
+          <h3>Ionu&#539; <br>MIHALACHE</h2>
+          <p class="title_1">Back-End Developer</p>
+          <p></p>
+          <p><button class="button_1" onclick="window.open('mailto:ipopescu46@gmail.com');">Contact</button></p>
+        </div>
+      </div>
+    </div>
+    <div class="column_1">
+      <div class="card_1">
+        <img src="./resources/vv.jpg" alt="Vlad" style="width:100%">
+        <div class="container_1">
+          <h3>Vlad-Lauren&#539;iu-Florin VR&#258;JITORU</h2>
+          <p class="title_1">Back-End Developer</p>
+          <p></p>
+          <p><button class="button_1" onclick="window.open('mailto:vladflorinvrajitoru@gmail.com');">Contact</button></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row_1">
+    <div class="column_1">
+      <div class="card_1">
+        <img src="./resources/po.jpg" alt="Paul" style="width:100%">
+        <div class="container_1">
+          <h3>Paul-Stelian <br> OLARU</h2>
+          <p class="title_1">Full Stack Developer</p>
+          <p></p>
+          <p><button class="button_1" onclick="window.open('mailto:paul_stelian.olaru@stud.acs.upb.ro');">Contact</button></p>
+        </div>
+      </div>
+    </div>
+    <div class="column_1">
+      <div class="card_1">
+        <img src="./resources/cs.jpg" alt="Cristin" style="width:100%">
+        <div class="container_1">
+          <h3>Cristin <br> S&#206;RBU</h2>
+          <p class="title_1">Front-End Developer</p>
+          <p></p>
+          <p><button class="button_1" onclick="window.open('mailto:cristinsirbu@gmail.com');">Contact</button></p>
+        </div>
+      </div>
+    </div>
+    <div class="column_1">
+      <div class="card_1">
+        <img src="./resources/sc.jpg" alt="Serban" style="width:100%">
+        <div class="container_1">
+          <h3>Daniel-	&#350;erban COZMA</h2>
+            <p class="title_1">Front-End Developer</p>
+            <p></p>
+            <p><button class="button_1" onclick="window.open('mailto:cozmaserban@icloud.com');">Contact</button></p>
+        </div>
+      </div>
+    </div>
+  </div>
+	</div>
+</div>
+
+</body>
+</html>
