@@ -52,21 +52,70 @@
       ['Twitter', 2],
       ['Skype', 1],
     ]);
+
+    var data4 = google.visualization.arrayToDataTable([
+      ['Keep', 'Number of people'],
+      ['save info in phone agend', 82],
+      ['note on a piece of paper', 0],
+      ['note on physical agenda', 5],
+      ['ask someone to note for you', 2],
+      ['receive business card', 16],
+      ['memorize them', 4],
+    ]);
+
+    var data5 = google.visualization.arrayToDataTable([
+      ['Difficulites', 'Number of people'],
+      ['forgot to exchange data', 52],
+      ['do not know all participants', 54],
+      ['do not know the host', 14],
+      ['do not know the type of event', 9],
+      ['do not know how formal it is', 25],
+      ['forgot the name of people', 1],
+      ['beer missing', 1],
+      ['people use facebook', 1],
+    ]);
+
+    var data6 = google.visualization.arrayToDataTable([
+      ['What do they want to exchange', 'Number of people'],
+      ['profile picture', 66],
+      ['name and surname', 81],
+      ['phone number', 67],
+      ['email', 61],
+      ['fax', 3],
+      ['company', 54],
+      ['position', 47],
+      ['Facebook', 27],
+      ['LinkedIn', 36],
+      ['Instagram', 19],
+      ['Twitter', 3],
+      ['Skype', 1],
+      ['working experience', 1],
+    ]);
+
       var options = {
         legend: { position: "none" },
       };
 
       var view = new google.visualization.DataView(data3);
-      var chart = new google.visualization.BarChart(document.getElementById("chart1"));
-      chart.draw(view, options);
+      var view2 = new google.visualization.DataView(data4);
+      var view3 = new google.visualization.DataView(data5);
+      var view4 = new google.visualization.DataView(data6);
+      var chart3 = new google.visualization.BarChart(document.getElementById("chart1"));
+      chart3.draw(view, options);
+      var chart4 = new google.visualization.BarChart(document.getElementById("chart2"));
+      chart4.draw(view2, options);
+      var chart5 = new google.visualization.BarChart(document.getElementById("chart3"));
+      chart5.draw(view3, options);
+      var chart6 = new google.visualization.BarChart(document.getElementById("chart4"));
+      chart6.draw(view4, options);
 
       // Display the chart inside the <div> element with id="piechart"
       var chart = new google.visualization.PieChart(document.getElementById('piechart'));
       chart.draw(data);
       var chart1 = new google.visualization.PieChart(document.getElementById('piechart1'));
       chart1.draw(data1);
-      var chart1 = new google.visualization.PieChart(document.getElementById('piechart2'));
-      chart1.draw(data2);
+      var chart2 = new google.visualization.PieChart(document.getElementById('piechart2'));
+      chart2.draw(data2);
     }
     </script>
   </head>
@@ -860,11 +909,11 @@
   		<p>The most popular data to exchange is the name, phone number and Facebook profile, although we cannot ignore the company and role in it, the Instagram profile or the E-mail address, each of these having at least a 29% popularity among the respondents.</p>
         <div id="chart1"></div>
   		<p>The most common solution, by far, used by our responders was the phonebook, although on the second place (at about 18% of the responses) we notice physical business cards as being a semi-popular choice.</p>
-        <img src="resources/graphs/Saving_contact_details.png" style="max-width: 100%"/>
+        <div id="chart2"></div>
   		<p>As for the most common complaints, two issues have been encountered by more than half of our respondents, namely forgetting to exchange contact details between the participants and simply not getting to know all of them. A few other responses that have showed up in the responses relate to knowledge about the events themselves, as in knowing the host, how formal the event is or the kind of event in the first place.</p>
-        <img src="resources/graphs/Difficulties.png" style="max-width: 100%"/>
+        <div id="chart3"></div>
   		<p>If our responders were to create their own profile to be easily shared, they would choose to share simple contact details, such as name, profile photo, phone number and E-mail address. A significant amount of responders also said that they want to share what company they work at and their role there as well. Relatively fewer want to share LinkedIn, Facebook, Instagram and other social media profiles.</p>
-        <img src="resources/graphs/Profile_self.png" style="max-width: 100%"/>
+        <div id="chart4"></div>
   		<p>The most preferred method to share such a profile is via a mobile/web app, although a public profile available on a social media website seems to also be preferred by half of our respondents. Business cards are also chosen by nearly one third of them.</p>
         <img src="resources/graphs/Profile_sharing.png" style="max-width: 100%"/>
   		<p>As for places where such a contact data exchance feels needed, there are four situations which are roughly equally represented: Parties, interviews, business meetings and first encounters.</p>
@@ -922,6 +971,13 @@
       <h3 class="heading1"><br>Making baby steps in the good direction</h3>
       <p>
         <img src="./resources/baby.png" alt="Bogdan" style="width:20%">
+        <p>After analyzing the survey data, we noticed people's desire to use a mobile application that would allow a fast data transfer using NFC technology.
+        <p>At the same time, after analyzing the survey data, we observed the need for people to give up the use of business cards.</p>
+        <p>We notice that the majority of people would prefer a mobile application, so we need some time in developing a mobile application maybe compatible with both Android and IOS.</p>
+        <p>The next step is to implement the application and  to combine our ideas with the ideas of potential users who completed the survey. 
+          After implementing the application, we will share the application with close friends. 
+         If we receive positive feedback, we will improve it and launch it for other users as well.
+        </p>
       </p>
     </div>
     <div class="w3-content w3-container w3-padding-64 container-cut" id="contact">
