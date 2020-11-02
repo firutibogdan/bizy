@@ -102,6 +102,44 @@
       ['qr', 1],
     ]);
 
+    var data_contact_details = google.visualization.arrayToDataTable([
+      ['How are they saving the data', 'Number of people'],
+      ['phonebook', 81],
+      ['paper', 0],
+      ['physical phonebook', 5],
+      ['ask someone to write it down', 2],
+      ['business card', 16],
+      ['memorize', 1],
+      ['sometimes write down on phone', 31],
+      ['remember', 1],
+      ['remember and look up later', 1],
+      ['memorize', 1],
+    ]);
+
+    var data_price_points = google.visualization.arrayToDataTable([
+    	["How much would they pay", "Number of people"],
+    	["0$", 22],
+    	["1-2$", 27],
+    	["3-5$", 14],
+    	["5-10$", 13],
+    	[">10$", 7],
+    	["As user, 0$, as developer, 10-100$", 2],
+    	["Some person wouldn't share their data", 1],
+    ]);
+
+    var data_lookup_issues = google.visualization.arrayToDataTable([
+    	["What issues did they encounter while looking up business cards", "Number of people"],
+    	["Irrelevant info", 16],
+    	["Too many cards", 35],
+    	["Couldn't find person searched", 32],
+    	["Contact data changed", 44],
+    	["Workplace/role changed", 36],
+    	["Lack of time", 27],
+    	["No problems", 4],
+    	["Lost card", 3],
+    	["No need", 2],
+    	["Lack of popularity", 1],
+    ]);
       var options = {
         legend: { position: "none" },
       };
@@ -113,14 +151,20 @@
       var view5 = new google.visualization.DataView(data7);
       var chart3 = new google.visualization.BarChart(document.getElementById("chart1"));
       chart3.draw(view, options);
-      var chart4 = new google.visualization.BarChart(document.getElementById("chart2"));
-      chart4.draw(view2, options);
+      //var chart4 = new google.visualization.BarChart(document.getElementById("chart2"));
+      //chart4.draw(view2, options);
       var chart5 = new google.visualization.BarChart(document.getElementById("chart3"));
       chart5.draw(view3, options);
       var chart6 = new google.visualization.BarChart(document.getElementById("chart4"));
       chart6.draw(view4, options);
       var chart7 = new google.visualization.BarChart(document.getElementById("chart5"));
       chart7.draw(view5, options);
+      var chart = new google.visualization.BarChart(document.getElementById("chart1"));
+      chart.draw(view, options);
+      var barchart = new google.visualization.BarChart(document.getElementById("chart_saving"))
+      barchart.draw(view, options)
+      var chart_lookup_issues = new google.visualization.BarChart(document.getElementById("chart_data_lookup_issues"))
+      chart_lookup_issues.draw(view, options)
 
       // Display the chart inside the <div> element with id="piechart"
       var chart = new google.visualization.PieChart(document.getElementById('piechart'));
@@ -129,6 +173,10 @@
       chart1.draw(data1);
       var chart2 = new google.visualization.PieChart(document.getElementById('piechart2'));
       chart2.draw(data2);
+      var chart1 = new google.visualization.PieChart(document.getElementById('piechart2'));
+      chart1.draw(data2);
+      var chart_data_price_points = new google.visualization.PieChart(document.getElementById('piechart_price'))
+      chart_data_price_points.draw(data_price_points)
     }
     </script>
   </head>
@@ -922,7 +970,8 @@
   		<p>The most popular data to exchange is the name, phone number and Facebook profile, although we cannot ignore the company and role in it, the Instagram profile or the E-mail address, each of these having at least a 29% popularity among the respondents.</p>
         <div id="chart1"></div>
   		<p>The most common solution, by far, used by our responders was the phonebook, although on the second place (at about 18% of the responses) we notice physical business cards as being a semi-popular choice.</p>
-        <div id="chart2"></div>
+        <!--<div id="chart2"></div>-->
+        <div id="chart_saving"></div>
   		<p>As for the most common complaints, two issues have been encountered by more than half of our respondents, namely forgetting to exchange contact details between the participants and simply not getting to know all of them. A few other responses that have showed up in the responses relate to knowledge about the events themselves, as in knowing the host, how formal the event is or the kind of event in the first place.</p>
         <div id="chart3"></div>
   		<p>If our responders were to create their own profile to be easily shared, they would choose to share simple contact details, such as name, profile photo, phone number and E-mail address. A significant amount of responders also said that they want to share what company they work at and their role there as well. Relatively fewer want to share LinkedIn, Facebook, Instagram and other social media profiles.</p>
@@ -946,8 +995,9 @@
         <img src="resources/graphs/Data_lookup.png" style="max-width: 100%"/>
   		<p>The problems actually encountered by the respondents can be split in the following categories: data on the cards becoming outdated, failing to find the person among too many business cards, or the info on said cards being irrelevant anyway.</p>
         <img src="resources/graphs/Data_lookup_issues.png" style="max-width: 100%"/>
+        <div id="chart_data_lookup_issues"></div>
   		<p>As for how much the respondents would spend on an app that would resolve the problem, a quarter wouldn't spend anything, a third would spend up to 2$, while another fifth would spend between 3$ and 5$. In total, nearly three quarters of the responses are up to 5$, and more than half are up to 3$.</p>
-        <img src="resources/graphs/Price_points.png" style="max-width: 100%"/>
+        <div id="piechart_price"></div>
       </p>
       <h3 class="heading1"><br>Learning from possible customers</h3>
       <p>
