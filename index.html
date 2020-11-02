@@ -13,7 +13,7 @@
     // Draw the chart and set the chart values
     function drawChart() {
       var data = google.visualization.arrayToDataTable([
-      ['Sex', 'Number of people'],
+      ['Gender', 'Number of people'],
       ['Male', 51],
       ['Female', 35],
     ]);
@@ -93,7 +93,7 @@
     ]);
 
     var data7 = google.visualization.arrayToDataTable([
-      ['Difficulites', 'Number of people'],
+      ['Method', 'Number of people'],
       ['business card', 27],
       ['speaking', 10],
       ['mobile app', 56],
@@ -103,7 +103,7 @@
     ]);
 
     var data8 = google.visualization.arrayToDataTable([
-      ['Difficulites', 'Number of people'],
+      ['Context', 'Number of people'],
       ['parties', 50],
       ['interviews', 47],
       ['business meetings', 51],
@@ -113,7 +113,7 @@
     ]);
 
     var data9 = google.visualization.arrayToDataTable([
-      ['Difficulites', 'Number of people'],
+      ['Meetings', 'Number of people'],
       ['0', 20],
       ['1-5', 37],
       ['6-15', 9],
@@ -122,7 +122,7 @@
     ]);
 
     var data10 = google.visualization.arrayToDataTable([
-      ['Difficulites', 'Number of people'],
+      ['Business Cards used', 'Number of people'],
       ['0', 18],
       ['1-5', 38],
       ['6-15', 16],
@@ -130,48 +130,248 @@
       ['over 25', 12],
     ]);
 
-      var options = {
-        legend: { position: "none" },
-      };
+    var data11 = google.visualization.arrayToDataTable([
+      ['What did you do', 'Number of people'],
+      ['stored it', 56],
+      ['went to trash after writing down the info', 24],
+      ['recycle', 14],
+      ['did not get', 3],
+      ['lost it', 1],
+    ]);
+
+    var data12 = google.visualization.arrayToDataTable([
+      ['Aspects', 'Number of people'],
+      ['it makes a person important', 41],
+      ['easy to be used', 44],
+      ['attractive design', 23],
+      ['keeps all the needed info about a person', 52],
+      ['small and easy to store', 43],
+      ['can be kept for a long period', 8],
+      ['accessible price', 16],
+      ['no reason', 1],
+      ['tradition', 1],
+    ]);
+
+    var data13 = google.visualization.arrayToDataTable([
+      ['Disadvantages', 'Number of people'],
+      ['environment pollution', 59],
+      ['can not be associated with a person\'s iamge', 35],
+      ['no relevant information', 4],
+      ['the information can be outdated', 52],
+      ['easy to loose', 3],
+      ['too formal', 1],
+      ['can intimidate other people', 1],
+      ['hard to be managed', 1],
+    ]);
+
+    var data14 = google.visualization.arrayToDataTable([
+      ['What do they want to exchange', 'Number of people'],
+      ['profile picture', 4],
+      ['name and surname', 75],
+      ['phone number', 61],
+      ['email', 60],
+      ['fax', 2],
+      ['company', 55],
+      ['position', 51],
+      ['Facebook', 12],
+      ['LinkedIn', 24],
+      ['Instagram', 2],
+      ['Twitter', 1],
+      ['Skype', 3],
+      ['not the case/not needed', 3],
+    ]);
+
+    var data15 = google.visualization.arrayToDataTable([
+      ['Difficulites', 'Number of people'],
+      ['one of the people did not posses a busines card', 37],
+      ['had to write down the info', 37],
+      ['forgot important aspects about the interlocutor', 50],
+      ['shyness', 1],
+      ['none/not the case', 6],
+    ]);
+
+    var data16 = google.visualization.arrayToDataTable([
+      ['Relevant info', 'Number of people'],
+      ['name and surname', 59],
+      ['phone number', 54],
+      ['email', 43],
+      ['fax', 3],
+      ['company', 39],
+      ['position', 24],
+      ['Facebook', 5],
+      ['LinkedIn', 10],
+      ['Instagram', 2],
+      ['Twitter', 0],
+      ['Skype', 1],
+      ['offered services', 1],
+      ['not the case/not needed', 4],
+    ]);
+
+    var data17 = google.visualization.arrayToDataTable([
+      ['Difficulites', 'Number of people'],
+      ['no relevant info on the business card', 16],
+      ['too many business cards to search into', 35],
+      ['can not find the needed person', 32],
+      ['people changed their contact info', 44],
+      ['people changed their working place', 36],
+      ['not enough time for searching', 27],
+      ['lost cards/people not using them', 4],
+      ['not needed to search/no problems', 6],
+    ]);
+
+    var data18 = google.visualization.arrayToDataTable([
+      ['Sum of money', 'Number of people'],
+      ['0$', 22],
+      ['1-2$', 27],
+      ['3-5$', 14],
+      ['5-10$', 13],
+      ['over 10$', 7],
+      ['as a user 0$, as a developper 10-100$', 2],
+      ['do not trust technology (GDPR)', 1],
+    ]);
 
       var options1 = {
-        title: "How many business meetings you have attended?"
+        legend: { position: "none" },
+        title: "What is the main information exchanged with a new connection at such an event?"
       };
 
       var options2 = {
-        title: "How many business cards have you used?"
+        legend: { position: "none" },
+        title: "How do you store new contact\'s data"
       };
 
-      var view = new google.visualization.DataView(data3);
+      var options3 = {
+        legend: { position: "none" },
+        title: "Taking part in such events, what are the difficulties you figured?"
+      };
+
+      var options4 = {
+        legend: { position: "none" },
+        title: "What is the main information that a personal profile should include?"
+      };
+
+      var options5 = {
+        legend: { position: "none" },
+        title: "What would be the simplest method to share this custom profile?"
+      };
+
+      var options6 = {
+        legend: { position: "none" },
+        title: "What was the context when you felt the need to share your personal information?"
+      };
+
+      var options7 = {
+        legend: { position: "none" },
+        title: "What did you do with a business card after you received it?"
+      };
+
+      var options8 = {
+        legend: { position: "none" },
+        title: "What do you think are the aspects that users like about business cards?"
+      };
+
+      var options9 = {
+        legend: { position: "none" },
+        title: "What do you think are the disadvantages implied by using business cards?"
+      };
+
+      var options10 = {
+        legend: { position: "none" },
+        title: "What data did you exchange during a business meeting with your interlocutor?"
+      };
+
+      var options11 = {
+        legend: { position: "none" },
+        title: "What were the problems that you spotted during this formal exchange?"
+      };
+
+      var options12 = {
+        legend: { position: "none" },
+        title: "What is the main information you have been looking for in the business cards?"
+      };
+
+      var options13 = {
+        legend: { position: "none" },
+        title: "What problems did you face when you searched in the business cards?"
+      };
+
+      var pie_options1 = {
+        title: "Gender"
+      };
+
+      var pie_options2 = {
+        title: "Age cathegory"
+      };
+
+      var pie_options3 = {
+        title: "How often do you take part into social events? (gatherings, meetings, business meetings)"
+      };
+
+      var pie_options4 = {
+        title: "Number of business meetings you took part:"
+      };
+
+      var pie_options5 = {
+        title: "How many business cards have you used up to now? (yours/received)"
+      };
+
+      var pie_options6 = {
+        title: "How much would you like to pay for an application that can simplify this task?"
+      };
+
+      var view1 = new google.visualization.DataView(data3);
       var view2 = new google.visualization.DataView(data4);
       var view3 = new google.visualization.DataView(data5);
       var view4 = new google.visualization.DataView(data6);
       var view5 = new google.visualization.DataView(data7);
       var view6 = new google.visualization.DataView(data8);
-      var chart3 = new google.visualization.BarChart(document.getElementById("chart1"));
-      chart3.draw(view, options);
-      var chart4 = new google.visualization.BarChart(document.getElementById("chart2"));
-      chart4.draw(view2, options);
-      var chart5 = new google.visualization.BarChart(document.getElementById("chart3"));
-      chart5.draw(view3, options);
-      var chart6 = new google.visualization.BarChart(document.getElementById("chart4"));
-      chart6.draw(view4, options);
-      var chart7 = new google.visualization.BarChart(document.getElementById("chart5"));
-      chart7.draw(view5, options);
-      var chart8 = new google.visualization.BarChart(document.getElementById("chart6"));
-      chart8.draw(view6, options);
+      var view7 = new google.visualization.DataView(data11);
+      var view8 = new google.visualization.DataView(data12);
+      var view9 = new google.visualization.DataView(data13);
+      var view10 = new google.visualization.DataView(data14);
+      var view11 = new google.visualization.DataView(data15);
+      var view12 = new google.visualization.DataView(data16);
+      var view13 = new google.visualization.DataView(data17);
 
-      // Display the chart inside the <div> element with id="piechart"
-      var chart = new google.visualization.PieChart(document.getElementById('piechart'));
-      chart.draw(data);
-      var chart1 = new google.visualization.PieChart(document.getElementById('piechart1'));
-      chart1.draw(data1);
-      var chart2 = new google.visualization.PieChart(document.getElementById('piechart2'));
-      chart2.draw(data2);
-      var chart9 = new google.visualization.PieChart(document.getElementById('piechart3'));
-      chart9.draw(data9, options1);
-      var chart10 = new google.visualization.PieChart(document.getElementById('piechart4'));
-      chart10.draw(data10, options2);
+      var chart1 = new google.visualization.BarChart(document.getElementById("chart1"));
+      chart1.draw(view1, options1);
+      var chart2 = new google.visualization.BarChart(document.getElementById("chart2"));
+      chart2.draw(view2, options2);
+      var chart3 = new google.visualization.BarChart(document.getElementById("chart3"));
+      chart3.draw(view3, options3);
+      var chart4 = new google.visualization.BarChart(document.getElementById("chart4"));
+      chart4.draw(view4, options4);
+      var chart5 = new google.visualization.BarChart(document.getElementById("chart5"));
+      chart5.draw(view5, options5);
+      var chart6 = new google.visualization.BarChart(document.getElementById("chart6"));
+      chart6.draw(view6, options6);
+      var chart7 = new google.visualization.BarChart(document.getElementById("chart7"));
+      chart7.draw(view7, options7);
+      var chart8 = new google.visualization.BarChart(document.getElementById("chart8"));
+      chart8.draw(view8, options8);
+      var chart9 = new google.visualization.BarChart(document.getElementById("chart9"));
+      chart9.draw(view9, options9);
+      var chart10 = new google.visualization.BarChart(document.getElementById("chart10"));
+      chart10.draw(view10, options10);
+      var chart11 = new google.visualization.BarChart(document.getElementById("chart11"));
+      chart11.draw(view11, options11);
+      var chart12 = new google.visualization.BarChart(document.getElementById("chart12"));
+      chart12.draw(view12, options12);
+      var chart13 = new google.visualization.BarChart(document.getElementById("chart13"));
+      chart13.draw(view13, options13);
+
+      var piechart1 = new google.visualization.PieChart(document.getElementById('piechart1'));
+      piechart1.draw(data, pie_options1);
+      var piechart2 = new google.visualization.PieChart(document.getElementById('piechart2'));
+      piechart2.draw(data1, pie_options2);
+      var piechart3 = new google.visualization.PieChart(document.getElementById('piechart3'));
+      piechart3.draw(data2, pie_options3);
+      var piechart4 = new google.visualization.PieChart(document.getElementById('piechart4'));
+      piechart4.draw(data9, pie_options4);
+      var piechart5 = new google.visualization.PieChart(document.getElementById('piechart5'));
+      piechart5.draw(data10, pie_options5);
+      var piechart6 = new google.visualization.PieChart(document.getElementById('piechart6'));
+      piechart6.draw(data18, pie_options6);
     }
     </script>
   </head>
@@ -958,10 +1158,10 @@
       <p>
       	We have shared our form in various places, and we have got 86 responses.
   		<p>For the demographics, we have more male responders than female responders, and the age group that is represented in the strongest fashion is the 18-24 year old people.</p>
-        <div id="piechart"></div>
         <div id="piechart1"></div>
-  		<p>About half of the people who answered claimed to participating to social events at least once a week, with about 37% participating at least twice a week to such events.</p>
         <div id="piechart2"></div>
+  		<p>About half of the people who answered claimed to participating to social events at least once a week, with about 37% participating at least twice a week to such events.</p>
+        <div id="piechart3"></div>
   		<p>The most popular data to exchange is the name, phone number and Facebook profile, although we cannot ignore the company and role in it, the Instagram profile or the E-mail address, each of these having at least a 29% popularity among the respondents.</p>
         <div id="chart1"></div>
   		<p>The most common solution, by far, used by our responders was the phonebook, although on the second place (at about 18% of the responses) we notice physical business cards as being a semi-popular choice.</p>
@@ -975,23 +1175,23 @@
   		<p>As for places where such a contact data exchance feels needed, there are four situations which are roughly equally represented: Parties, interviews, business meetings and first encounters.</p>
         <div id="chart6"></div>
   		<p>More than 66% of our respondents participated in at most 5 business meetings, although a non-negligible amount (about 15%) were at the other extreme and have participated at more than 25 such meetings. Roughly similar proportions can be noticed in the data for the amount of physical business cards that each responder has used.</p>
-      <div id="piechart3"></div>
-      <div id="piechart4"></div>
+        <div id="piechart4"></div>
+        <div id="piechart5"></div>
   		<p>Most of our respondents store away business cards after receiving them, although slightly more than a quarter copied the data somewhere else and threw away the card itself; these two categories make up more than three quarters of the responses we've received altogether.</p>
-        <img src="resources/graphs/Cards_fate.png" style="max-width: 100%"/>
+        <div id="chart7"></div>
   		<p>Users have various reasons to consider business cards attractive, including but not limited to ease of use, completeness of the information, ease of use or ease of storing them away. As for cons to using them, more than 60% of our users consider that pollution (from the ink and paper/metal) and the fact that the information on them easily goes out of date make up the most important issues with them, though 40% of users simply consider them unpopular.</p>
-        <img src="resources/graphs/Cards_pros.png" style="max-width: 100%"/>
-        <img src="resources/graphs/Cards_cons.png" style="max-width: 100%"/>
+        <div id="chart8"></div>
+        <div id="chart9"></div>
   		<p>For the data exchanged at business meetings, most of our respondents shared names, phone numbers, E-mail addresses, as well as the company they're working at and their role there. A less popular but still notable data point, at roughly 28%, is the LinkedIn profile.</p>
-        <img src="resources/graphs/Data_shared_business.png" style="max-width: 100%"/>
+        <div id="chart10"></div>
   		<p>As for issues in using business cards, nearly 60% of our respondents complain about failing to associate the business card with the actual person they received it, thus making the business card less useful. Other two issues that were popular and tied for second place, at roughly 43%, were one of the participants not having a business card and thus having to write down the info on either paper or the phone manually.</p>
-        <img src="resources/graphs/Data_exchange_issues.png" style="max-width: 100%"/>
+        <div id="chart11"></div>
   		<p>For the data that the respondents actually look up in the business cards, the recurring pattern of name, phone number, mail address, company and role within the company shows up again.</p>
-        <img src="resources/graphs/Data_lookup.png" style="max-width: 100%"/>
+        <div id="chart12"></div>
   		<p>The problems actually encountered by the respondents can be split in the following categories: data on the cards becoming outdated, failing to find the person among too many business cards, or the info on said cards being irrelevant anyway.</p>
-        <img src="resources/graphs/Data_lookup_issues.png" style="max-width: 100%"/>
+        <div id="chart13"></div>
   		<p>As for how much the respondents would spend on an app that would resolve the problem, a quarter wouldn't spend anything, a third would spend up to 2$, while another fifth would spend between 3$ and 5$. In total, nearly three quarters of the responses are up to 5$, and more than half are up to 3$.</p>
-        <img src="resources/graphs/Price_points.png" style="max-width: 100%"/>
+        <div id="piechart6"></div>
       </p>
       <h3 class="heading1"><br>Learning from possible customers</h3>
       <p>
