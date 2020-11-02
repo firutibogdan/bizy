@@ -112,8 +112,34 @@
       ['meet-ups', 1],
     ]);
 
+    var data9 = google.visualization.arrayToDataTable([
+      ['Difficulites', 'Number of people'],
+      ['0', 20],
+      ['1-5', 37],
+      ['6-15', 9],
+      ['16-25', 7],
+      ['over 25', 13],
+    ]);
+
+    var data10 = google.visualization.arrayToDataTable([
+      ['Difficulites', 'Number of people'],
+      ['0', 18],
+      ['1-5', 38],
+      ['6-15', 16],
+      ['16-25', 2],
+      ['over 25', 12],
+    ]);
+
       var options = {
         legend: { position: "none" },
+      };
+
+      var options1 = {
+        title: "How many business meetings you have attended?"
+      };
+
+      var options2 = {
+        title: "How many business cards have you used?"
       };
 
       var view = new google.visualization.DataView(data3);
@@ -142,6 +168,10 @@
       chart1.draw(data1);
       var chart2 = new google.visualization.PieChart(document.getElementById('piechart2'));
       chart2.draw(data2);
+      var chart9 = new google.visualization.PieChart(document.getElementById('piechart3'));
+      chart9.draw(data9, options1);
+      var chart10 = new google.visualization.PieChart(document.getElementById('piechart4'));
+      chart10.draw(data10, options2);
     }
     </script>
   </head>
@@ -945,7 +975,8 @@
   		<p>As for places where such a contact data exchance feels needed, there are four situations which are roughly equally represented: Parties, interviews, business meetings and first encounters.</p>
         <div id="chart6"></div>
   		<p>More than 66% of our respondents participated in at most 5 business meetings, although a non-negligible amount (about 15%) were at the other extreme and have participated at more than 25 such meetings. Roughly similar proportions can be noticed in the data for the amount of physical business cards that each responder has used.</p>
-        <img src="resources/graphs/Meetings_count.png" style="max-width: 100%"/>
+      <div id="piechart3"></div>
+      <div id="piechart4"></div>
   		<p>Most of our respondents store away business cards after receiving them, although slightly more than a quarter copied the data somewhere else and threw away the card itself; these two categories make up more than three quarters of the responses we've received altogether.</p>
         <img src="resources/graphs/Cards_fate.png" style="max-width: 100%"/>
   		<p>Users have various reasons to consider business cards attractive, including but not limited to ease of use, completeness of the information, ease of use or ease of storing them away. As for cons to using them, more than 60% of our users consider that pollution (from the ink and paper/metal) and the fact that the information on them easily goes out of date make up the most important issues with them, though 40% of users simply consider them unpopular.</p>
