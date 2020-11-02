@@ -92,6 +92,16 @@
       ['working experience', 1],
     ]);
 
+    var data7 = google.visualization.arrayToDataTable([
+      ['Difficulites', 'Number of people'],
+      ['business card', 27],
+      ['speaking', 10],
+      ['mobile app', 56],
+      ['flyer', 3],
+      ['public profile', 43],
+      ['qr', 1],
+    ]);
+
       var options = {
         legend: { position: "none" },
       };
@@ -100,6 +110,7 @@
       var view2 = new google.visualization.DataView(data4);
       var view3 = new google.visualization.DataView(data5);
       var view4 = new google.visualization.DataView(data6);
+      var view5 = new google.visualization.DataView(data7);
       var chart3 = new google.visualization.BarChart(document.getElementById("chart1"));
       chart3.draw(view, options);
       var chart4 = new google.visualization.BarChart(document.getElementById("chart2"));
@@ -108,6 +119,8 @@
       chart5.draw(view3, options);
       var chart6 = new google.visualization.BarChart(document.getElementById("chart4"));
       chart6.draw(view4, options);
+      var chart7 = new google.visualization.BarChart(document.getElementById("chart5"));
+      chart7.draw(view5, options);
 
       // Display the chart inside the <div> element with id="piechart"
       var chart = new google.visualization.PieChart(document.getElementById('piechart'));
@@ -915,7 +928,7 @@
   		<p>If our responders were to create their own profile to be easily shared, they would choose to share simple contact details, such as name, profile photo, phone number and E-mail address. A significant amount of responders also said that they want to share what company they work at and their role there as well. Relatively fewer want to share LinkedIn, Facebook, Instagram and other social media profiles.</p>
         <div id="chart4"></div>
   		<p>The most preferred method to share such a profile is via a mobile/web app, although a public profile available on a social media website seems to also be preferred by half of our respondents. Business cards are also chosen by nearly one third of them.</p>
-        <img src="resources/graphs/Profile_sharing.png" style="max-width: 100%"/>
+        <div id="chart5"></div>
   		<p>As for places where such a contact data exchance feels needed, there are four situations which are roughly equally represented: Parties, interviews, business meetings and first encounters.</p>
         <img src="resources/graphs/Context.png" style="max-width: 100%"/>
   		<p>More than 66% of our respondents participated in at most 5 business meetings, although a non-negligible amount (about 15%) were at the other extreme and have participated at more than 25 such meetings. Roughly similar proportions can be noticed in the data for the amount of physical business cards that each responder has used.</p>
