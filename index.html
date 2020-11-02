@@ -4,6 +4,71 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+    // Load google charts
+    google.charts.load('current', {'packages':['corechart']});
+    google.charts.setOnLoadCallback(drawChart);
+
+    // Draw the chart and set the chart values
+    function drawChart() {
+      var data = google.visualization.arrayToDataTable([
+      ['Sex', 'Number of people'],
+      ['Male', 51],
+      ['Female', 35],
+    ]);
+
+    var data1 = google.visualization.arrayToDataTable([
+      ['Age', 'Number of people'],
+      ['under 18', 0],
+      ['18-24', 18],
+      ['25-34', 10],
+      ['35-44', 13],
+      ['45-54', 3],
+      ['over 55', 4],
+    ]);
+
+    var data2 = google.visualization.arrayToDataTable([
+      ['Events', 'Number of people'],
+      ['once in a month', 9],
+      ['once in two week', 21],
+      ['once in a week', 13],
+      ['many times a week', 32],
+      ['not so often', 11],
+    ]);
+
+    var data3 = google.visualization.arrayToDataTable([
+      ['What do they want to exchange', 'Number of people'],
+      ['profile picture', 0],
+      ['name and surname', 70],
+      ['phone number', 53],
+      ['email', 25],
+      ['fax', 1],
+      ['company', 34],
+      ['position', 31],
+      ['Facebook', 44],
+      ['LinkedIn', 12],
+      ['Instagram', 30],
+      ['Twitter', 2],
+      ['Skype', 1],
+    ]);
+      var options = {
+        legend: { position: "none" },
+      };
+
+      var view = new google.visualization.DataView(data3);
+      var chart = new google.visualization.BarChart(document.getElementById("chart1"));
+      chart.draw(view, options);
+
+      // Display the chart inside the <div> element with id="piechart"
+      var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+      chart.draw(data);
+      var chart1 = new google.visualization.PieChart(document.getElementById('piechart1'));
+      chart1.draw(data1);
+      var chart1 = new google.visualization.PieChart(document.getElementById('piechart2'));
+      chart1.draw(data2);
+    }
+    </script>
   </head>
   <title>Bizy</title>
   <meta charset="UTF-8">
@@ -788,11 +853,12 @@
       <p>
       	We have shared our form in various places, and we have got 86 responses.
   		<p>For the demographics, we have more male responders than female responders, and the age group that is represented in the strongest fashion is the 18-24 year old people.</p>
-        <img src="resources/graphs/Gender_age.png" style="max-width: 100%"/>
+        <div id="piechart"></div>
+        <div id="piechart1"></div>
   		<p>About half of the people who answered claimed to participating to social events at least once a week, with about 37% participating at least twice a week to such events.</p>
-        <img src="resources/graphs/Social_meetings_freq.png" style="max-width: 100%"/>
+        <div id="piechart2"></div>
   		<p>The most popular data to exchange is the name, phone number and Facebook profile, although we cannot ignore the company and role in it, the Instagram profile or the E-mail address, each of these having at least a 29% popularity among the respondents.</p>
-        <img src="resources/graphs/Data_exchanged.png" style="max-width: 100%"/>
+        <div id="chart1"></div>
   		<p>The most common solution, by far, used by our responders was the phonebook, although on the second place (at about 18% of the responses) we notice physical business cards as being a semi-popular choice.</p>
         <img src="resources/graphs/Saving_contact_details.png" style="max-width: 100%"/>
   		<p>As for the most common complaints, two issues have been encountered by more than half of our respondents, namely forgetting to exchange contact details between the participants and simply not getting to know all of them. A few other responses that have showed up in the responses relate to knowledge about the events themselves, as in knowing the host, how formal the event is or the kind of event in the first place.</p>
