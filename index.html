@@ -1,1321 +1,1585 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript">
-    // Load google charts
-    google.charts.load('current', {'packages':['corechart']});
-    google.charts.setOnLoadCallback(drawChart);
+<html lang="en">
 
-    // Draw the chart and set the chart values
-    function drawChart() {
-      var data = google.visualization.arrayToDataTable([
-      ['Gender', 'Number of people'],
-      ['Male', 51],
-      ['Female', 35],
-    ]);
+<head>
+	<meta charset="utf-8">
+	<title>Bizy</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" href="i/favicon.png" type="image/x-icon">
+	<!-- Google Fonts -->
+	<link
+		href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@100;200;300;400;500;600;700;800;900&family=DM+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap"
+		rel="stylesheet">
+	<!-- Bootstrap 4.5.2 CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+		integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+	<!-- Slick 1.8.1 jQuery plugin CSS (Sliders) -->
+	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+	<!-- Fancybox 3 jQuery plugin CSS (Open images and video in popup) -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+	<!-- AOS 2.3.4 jQuery plugin CSS (Animations) -->
+	<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+	<!-- FontAwesome CSS -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+	<!-- Startup CSS (Styles for all blocks) - Remove ".min" if you would edit a css code -->
+	<link href="css/style.min.css" rel="stylesheet" />
+	<!-- jQuery 3.5.1 -->
+	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+</head>
+ <style>
+	/******************
+		General
+		*******************/
+	div.gallery {
+		margin: 5px;
+		border: 1px solid #ccc;
+		float: left;
+		width: 180px;
+	}
 
-    var data1 = google.visualization.arrayToDataTable([
-      ['Age', 'Number of people'],
-      ['under 18', 0],
-      ['18-24', 18],
-      ['25-34', 10],
-      ['35-44', 13],
-      ['45-54', 3],
-      ['over 55', 4],
-    ]);
+	div.gallery:hover {
+		border: 1px solid #777;
+	}
 
-    var data2 = google.visualization.arrayToDataTable([
-      ['Events', 'Number of people'],
-      ['once in a month', 9],
-      ['once in two week', 21],
-      ['once in a week', 13],
-      ['many times a week', 32],
-      ['not so often', 11],
-    ]);
+	div.gallery img {
+		width: 100%;
+		height: auto;
+	}
 
-    var data3 = google.visualization.arrayToDataTable([
-      ['What do they want to exchange', 'Number of people'],
-      ['profile picture', 0],
-      ['name and surname', 70],
-      ['phone number', 53],
-      ['email', 25],
-      ['fax', 1],
-      ['company', 34],
-      ['position', 31],
-      ['Facebook', 44],
-      ['LinkedIn', 12],
-      ['Instagram', 30],
-      ['Twitter', 2],
-      ['Skype', 1],
-    ]);
+	div.desc {
+		padding: 15px;
+		text-align: center;
+	}
 
-    var data4 = google.visualization.arrayToDataTable([
-      ['Keep', 'Number of people'],
-      ['save info in phone agend', 82],
-      ['note on a piece of paper', 0],
-      ['note on physical agenda', 5],
-      ['ask someone to note for you', 2],
-      ['receive business card', 16],
-      ['memorize them', 4],
-    ]);
+	body,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		font-family: "Rubik", sans-serif;
+	}
 
-    var data5 = google.visualization.arrayToDataTable([
-      ['Difficulites', 'Number of people'],
-      ['forgot to exchange data', 52],
-      ['do not know all participants', 54],
-      ['do not know the host', 14],
-      ['do not know the type of event', 9],
-      ['do not know how formal it is', 25],
-      ['forgot the name of people', 1],
-      ['beer missing', 1],
-      ['people use facebook', 1],
-    ]);
 
-    var data6 = google.visualization.arrayToDataTable([
-      ['What do they want to exchange', 'Number of people'],
-      ['profile picture', 66],
-      ['name and surname', 81],
-      ['phone number', 67],
-      ['email', 61],
-      ['fax', 3],
-      ['company', 54],
-      ['position', 47],
-      ['Facebook', 27],
-      ['LinkedIn', 36],
-      ['Instagram', 19],
-      ['Twitter', 3],
-      ['Skype', 1],
-      ['working experience', 1],
-    ]);
+	p {
+		text-align: justify;
+		font-size: 1.2em;
+		color: rgb(92, 92, 92);
+	}
 
-    var data7 = google.visualization.arrayToDataTable([
-      ['Method', 'Number of people'],
-      ['business card', 27],
-      ['speaking', 10],
-      ['mobile app', 56],
-      ['flyer', 3],
-      ['public profile', 43],
-      ['qr', 1],
-    ]);
+	/* .heading1 {
+		font-size: 2em;
+		font-weight: bold;
+	}
 
-    var data8 = google.visualization.arrayToDataTable([
-      ['Context', 'Number of people'],
-      ['parties', 50],
-      ['interviews', 47],
-      ['business meetings', 51],
-      ['when you first met a person', 42],
-      ['conferences, volunteering activities', 1],
-      ['meet-ups', 1],
-    ]);
+	.w3-container {
+		background-color: rgb(255, 251, 250);
+		margin-top: 4em;
+		padding: 5em;
+	}
 
-    var data9 = google.visualization.arrayToDataTable([
-      ['Meetings', 'Number of people'],
-      ['0', 20],
-      ['1-5', 37],
-      ['6-15', 9],
-      ['16-25', 7],
-      ['over 25', 13],
-    ]);
+	.container-cut {
+		clip-path:
+			inset(5px round 20px);
+	}
 
-    var data10 = google.visualization.arrayToDataTable([
-      ['Business Cards used', 'Number of people'],
-      ['0', 18],
-      ['1-5', 38],
-      ['6-15', 16],
-      ['16-25', 2],
-      ['over 25', 12],
-    ]);
+	.milestone {
+		font-size: 15px;
+		color: #94b8b8;
+	}
 
-    var data11 = google.visualization.arrayToDataTable([
-      ['What did you do', 'Number of people'],
-      ['stored it', 56],
-      ['went to trash after writing down the info', 24],
-      ['recycle', 14],
-      ['did not get', 3],
-      ['lost it', 1],
-    ]);
+	/******************
+		Background
+		*******************/
+	.bgimg-1,
+	.bgimg-2,
+	.bgimg-3,
+	.bgimg-4,
+	.bgimg-5,
+	.bgimg-6,
+	.bgimg-7,
+	.bgimg-8 {
+		background-attachment: fixed;
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: cover;
+	}
 
-    var data12 = google.visualization.arrayToDataTable([
-      ['Aspects', 'Number of people'],
-      ['it makes a person important', 41],
-      ['easy to be used', 44],
-      ['attractive design', 23],
-      ['keeps all the needed info about a person', 52],
-      ['small and easy to store', 43],
-      ['can be kept for a long period', 8],
-      ['accessible price', 16],
-      ['no reason', 1],
-      ['tradition', 1],
-    ]);
+	.bgimg-1 {
+		background-image: url("./resources/bg.jpg");
+		background-size: cover;
+		min-height: 100%;
+	}
 
-    var data13 = google.visualization.arrayToDataTable([
-      ['Disadvantages', 'Number of people'],
-      ['environment pollution', 59],
-      ['can not be associated with a person\'s iamge', 35],
-      ['no relevant information', 4],
-      ['the information can be outdated', 52],
-      ['easy to loose', 3],
-      ['too formal', 1],
-      ['can intimidate other people', 1],
-      ['hard to be managed', 1],
-    ]);
+	/******************
+		Navigation
+		*******************/
+	.home-nav {
+		font-family: 'Rubik', sans-serif;
+		font-size: 1.5em;
+		font-weight: bold;
+		z-index: -1;
+	}
 
-    var data14 = google.visualization.arrayToDataTable([
-      ['What do they want to exchange', 'Number of people'],
-      ['profile picture', 4],
-      ['name and surname', 75],
-      ['phone number', 61],
-      ['email', 60],
-      ['fax', 2],
-      ['company', 55],
-      ['position', 51],
-      ['Facebook', 12],
-      ['LinkedIn', 24],
-      ['Instagram', 2],
-      ['Twitter', 1],
-      ['Skype', 3],
-      ['not the case/not needed', 3],
-    ]);
+	.w3-top {
+		z-index: 10;
+		background-color: #4d88ff;
+		font-size: 1.25em;
+		color: #442C2E;
+	}
 
-    var data15 = google.visualization.arrayToDataTable([
-      ['Difficulites', 'Number of people'],
-      ['one of the people did not posses a busines card', 37],
-      ['had to write down the info', 37],
-      ['forgot important aspects about the interlocutor', 50],
-      ['shyness', 1],
-      ['none/not the case', 6],
-    ]);
+	.w3-bar {
+		-moz-box-shadow: inset 0 0 10px rgb(131, 86, 86);
+		-webkit-box-shadow: inset 0 0 10px rgb(179, 255, 179) box-shadow: inset 0 0 10px rgb(179, 255, 179)
+	}
 
-    var data16 = google.visualization.arrayToDataTable([
-      ['Relevant info', 'Number of people'],
-      ['name and surname', 59],
-      ['phone number', 54],
-      ['email', 43],
-      ['fax', 3],
-      ['company', 39],
-      ['position', 24],
-      ['Facebook', 5],
-      ['LinkedIn', 10],
-      ['Instagram', 2],
-      ['Twitter', 0],
-      ['Skype', 1],
-      ['offered services', 1],
-      ['not the case/not needed', 4],
-    ]);
+	.w3-card {
+		box-shadow: none !important;
+	}
 
-    var data17 = google.visualization.arrayToDataTable([
-      ['Difficulites', 'Number of people'],
-      ['no relevant info on the business card', 16],
-      ['too many business cards to search into', 35],
-      ['can not find the needed person', 32],
-      ['people changed their contact info', 44],
-      ['people changed their working place', 36],
-      ['not enough time for searching', 27],
-      ['lost cards/people not using them', 4],
-      ['not needed to search/no problems', 6],
-    ]);
+	.w3-white {
+		background-color: #4d88ff !important;
+	}
 
-    var data18 = google.visualization.arrayToDataTable([
-      ['Sum of money', 'Number of people'],
-      ['0$', 22],
-      ['1-2$', 27],
-      ['3-5$', 14],
-      ['5-10$', 13],
-      ['over 10$', 7],
-      ['as a user 0$, as a developper 10-100$', 2],
-      ['do not trust technology (GDPR)', 1],
-    ]);
+	.navbar-item {
+		padding-top: 10px;
+		font-size: 1.25em;
+		color: #442C2E;
+	}
 
-      var options1 = {
-        legend: { position: "none" },
-        title: "What is the main information exchanged with a new connection at such an event?"
-      };
+	.navbar-item:hover,
+	.navbar-item:active {
+		background-color: transparent !important;
+		color: #442C2E;
+	}
 
-      var options2 = {
-        legend: { position: "none" },
-        title: "How do you store new contact\'s data"
-      };
+	.navbar-item text {
+		font-size: 0.8em;
+		fill: #442C2E;
+	}
 
-      var options3 = {
-        legend: { position: "none" },
-        title: "Taking part in such events, what are the difficulties you figured?"
-      };
+	.navbar-item:hover circle,
+	.navbar-item:active circle {
+		stroke: rgb(179, 255, 179)
+	}
 
-      var options4 = {
-        legend: { position: "none" },
-        title: "What is the main information that a personal profile should include?"
-      };
+	.button-item {
+		padding-top: 10px;
+		font-size: 1.25em;
+		background-color: #4d88ff;
+	}
 
-      var options5 = {
-        legend: { position: "none" },
-        title: "What would be the simplest method to share this custom profile?"
-      };
+	.button-item:hover,
+	.button-item:active {
+		color: #442C2E;
+	}
 
-      var options6 = {
-        legend: { position: "none" },
-        title: "What was the context when you felt the need to share your personal information?"
-      };
+	.button-item text {
+		font-size: 1em;
+		fill: #442C2E;
+	}
 
-      var options7 = {
-        legend: { position: "none" },
-        title: "What did you do with a business card after you received it?"
-      };
+	.button-item:hover circle,
+	.button-item:active circle {
+		stroke: rgb(179, 255, 179)
+	}
 
-      var options8 = {
-        legend: { position: "none" },
-        title: "What do you think are the aspects that users like about business cards?"
-      };
+	.rest-nav {
+		margin-top: 0.5em;
+	} */
 
-      var options9 = {
-        legend: { position: "none" },
-        title: "What do you think are the disadvantages implied by using business cards?"
-      };
+	/******************
+		Home Section
+		*******************/
+	/* #home {
+		font-size: 5em;
+	}
 
-      var options10 = {
-        legend: { position: "none" },
-        title: "What data did you exchange during a business meeting with your interlocutor?"
-      };
+	.w3-hover-opacity {
+		cursor: pointer;
+	}
 
-      var options11 = {
-        legend: { position: "none" },
-        title: "What were the problems that you spotted during this formal exchange?"
-      };
+	@media only screen and (max-device-width: 1600px) {
 
-      var options12 = {
-        legend: { position: "none" },
-        title: "What is the main information you have been looking for in the business cards?"
-      };
+		.bgimg-1,
+		.bgimg-2,
+		.bgimg-3 {
+			background-attachment: scroll;
+			min-height: 400px;
+		}
+	}
+*/
+	.numbered-ul {
+		padding-left: 0;
+		counter-reset: index;
+	}
 
-      var options13 = {
-        legend: { position: "none" },
-        title: "What problems did you face when you searched in the business cards?"
-      };
+	.numbered-li {
+		counter-increment: index;
+		display: flex;
+		align-items: center;
+		color: rgb(92, 92, 92);
+		font-size: 14px;
+		box-sizing: border-box;
+	} 
 
-      var pie_options1 = {
-        title: "Gender"
-      };
+	/******************
+		Competition Img
+		*******************/
+	.questionnaire-img {
+		width: 70%;
+		height: 70%;
+	}
 
-      var pie_options2 = {
-        title: "Age cathegory"
-      };
+	.column {
+		float: left;
+		width: 33%;
+		padding: 5px;
+	}
 
-      var pie_options3 = {
-        title: "How often do you take part into social events? (gatherings, meetings, business meetings)"
-      };
+	.row::after {
+		content: "";
+		clear: both;
+		display: table;
+	}
 
-      var pie_options4 = {
-        title: "Number of business meetings you took part:"
-      };
+	.column_wireframe {
+		float: left;
+		width: 50%;
+	}
+</style> 
 
-      var pie_options5 = {
-        title: "How many business cards have you used up to now? (yours/received)"
-      };
+<style>
 
-      var pie_options6 = {
-        title: "How much would you like to pay for an application that can simplify this task?"
-      };
-
-      var view1 = new google.visualization.DataView(data3);
-      var view2 = new google.visualization.DataView(data4);
-      var view3 = new google.visualization.DataView(data5);
-      var view4 = new google.visualization.DataView(data6);
-      var view5 = new google.visualization.DataView(data7);
-      var view6 = new google.visualization.DataView(data8);
-      var view7 = new google.visualization.DataView(data11);
-      var view8 = new google.visualization.DataView(data12);
-      var view9 = new google.visualization.DataView(data13);
-      var view10 = new google.visualization.DataView(data14);
-      var view11 = new google.visualization.DataView(data15);
-      var view12 = new google.visualization.DataView(data16);
-      var view13 = new google.visualization.DataView(data17);
-
-      var chart1 = new google.visualization.BarChart(document.getElementById("chart1"));
-      chart1.draw(view1, options1);
-      var chart2 = new google.visualization.BarChart(document.getElementById("chart2"));
-      chart2.draw(view2, options2);
-      var chart3 = new google.visualization.BarChart(document.getElementById("chart3"));
-      chart3.draw(view3, options3);
-      var chart4 = new google.visualization.BarChart(document.getElementById("chart4"));
-      chart4.draw(view4, options4);
-      var chart5 = new google.visualization.BarChart(document.getElementById("chart5"));
-      chart5.draw(view5, options5);
-      var chart6 = new google.visualization.BarChart(document.getElementById("chart6"));
-      chart6.draw(view6, options6);
-      var chart7 = new google.visualization.BarChart(document.getElementById("chart7"));
-      chart7.draw(view7, options7);
-      var chart8 = new google.visualization.BarChart(document.getElementById("chart8"));
-      chart8.draw(view8, options8);
-      var chart9 = new google.visualization.BarChart(document.getElementById("chart9"));
-      chart9.draw(view9, options9);
-      var chart10 = new google.visualization.BarChart(document.getElementById("chart10"));
-      chart10.draw(view10, options10);
-      var chart11 = new google.visualization.BarChart(document.getElementById("chart11"));
-      chart11.draw(view11, options11);
-      var chart12 = new google.visualization.BarChart(document.getElementById("chart12"));
-      chart12.draw(view12, options12);
-      var chart13 = new google.visualization.BarChart(document.getElementById("chart13"));
-      chart13.draw(view13, options13);
-
-      var piechart1 = new google.visualization.PieChart(document.getElementById('piechart1'));
-      piechart1.draw(data, pie_options1);
-      var piechart2 = new google.visualization.PieChart(document.getElementById('piechart2'));
-      piechart2.draw(data1, pie_options2);
-      var piechart3 = new google.visualization.PieChart(document.getElementById('piechart3'));
-      piechart3.draw(data2, pie_options3);
-      var piechart4 = new google.visualization.PieChart(document.getElementById('piechart4'));
-      piechart4.draw(data9, pie_options4);
-      var piechart5 = new google.visualization.PieChart(document.getElementById('piechart5'));
-      piechart5.draw(data10, pie_options5);
-      var piechart6 = new google.visualization.PieChart(document.getElementById('piechart6'));
-      piechart6.draw(data18, pie_options6);
-    }
-    </script>
-  </head>
-  <title>Bizy</title>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rubik&display=swap">
-  <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
-  <style>
-    /******************
-    General
-    *******************/
-    div.gallery {
-    margin: 5px;
-    border: 1px solid #ccc;
-    float: left;
-    width: 180px;
-    }
-    div.gallery:hover {
-    border: 1px solid #777;
-    }
-    div.gallery img {
-    width: 100%;
-    height: auto;
-    }
-    div.desc {
-    padding: 15px;
-    text-align: center;
-    }
-    body,h2,h3,h4,h5,h6 {font-family: "Rubik", sans-serif;}
-    body, html{
-    height: 100%;
-    /* background-color: #b3ccff; */
-    background-image: url("./resources/cards.jpg");
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    color: #442C2E;
-    line-height: 1.8;
-    box-sizing: border-box;
-    scroll-behavior: smooth;
-    }
-    *, *:before, *:after {
-    box-sizing: inherit;
-    }
-    p {
-    text-align: justify;
-    font-size: 1.2em;
-    color: rgb(92, 92, 92);
-    }
-    .heading1 {
-    font-size: 2em;
-    font-weight: bold;
-    }
-    .w3-container {
-    background-color: rgb(255, 251, 250);
-    margin-top: 4em;
-    padding: 5em;
-    }
-    .container-cut {
-    clip-path: 
-    inset(5px round 20px);
-    }
-    .milestone {
-    font-size: 15px;
-    color: #94b8b8;
-    }
-    /******************
-    Background
-    *******************/
-    .bgimg-1, .bgimg-2, .bgimg-3, .bgimg-4, .bgimg-5, .bgimg-6, .bgimg-7, .bgimg-8 {
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    }
-    .bgimg-1 {
-    background-image: url("./resources/bg.jpg");
-    background-size: cover;
-    min-height: 100%;
-    }
-    /******************
-    Navigation
-    *******************/
-    .home-nav {
-    font-family: 'Rubik', sans-serif;
-    font-size: 1.5em;
-    font-weight: bold;
-    z-index: -1;
-    }
-    .w3-top {
-    z-index:10;
-    background-color: #4d88ff;
-    font-size: 1.25em;
-    color: #442C2E;
-    }
-    .w3-bar {
-    -moz-box-shadow:    inset 0 0 10px rgb(131, 86, 86);
-    -webkit-box-shadow: inset 0 0 10px rgb(179, 255, 179)
-    box-shadow:         inset 0 0 10px rgb(179, 255, 179)
-    }
-    .w3-card {
-    box-shadow: none !important;
-    }
-    .w3-white {
-    background-color: #4d88ff !important;
-    }
-    .navbar-item {
-    padding-top: 10px;
-    font-size: 1.25em;
-    color: #442C2E;
-    }
-    .navbar-item:hover, .navbar-item:active {
-    background-color: transparent !important;
-    color: #442C2E;
-    }
-    .navbar-item text {
-    font-size: 0.8em;
-    fill: #442C2E;
-    }
-    .navbar-item:hover circle, .navbar-item:active circle{
-    stroke: rgb(179, 255, 179)
-    }
-    .button-item {
-    padding-top: 10px;
-    font-size: 1.25em;
-    background-color: #4d88ff;
-    }
-    .button-item:hover, .button-item:active {
-    color: #442C2E;
-    }
-    .button-item text {
-    font-size: 1em;
-    fill: #442C2E;
-    }
-    .button-item:hover circle, .button-item:active circle{
-    stroke: rgb(179, 255, 179)
-    }
-    .rest-nav {
-    margin-top: 0.5em;
-    }
-    /******************
-    Home Section
-    *******************/
-    #home {
-    font-size: 5em;
-    }
-    .w3-hover-opacity {cursor: pointer;}
-    @media only screen and (max-device-width: 1600px) {
-    .bgimg-1, .bgimg-2, .bgimg-3 {
-    background-attachment: scroll;
-    min-height: 400px;
-    }
-    }
-    ul {
-    padding-left: 0;
-    counter-reset: index;  
-    }
-    li {
-    counter-increment: index; 
-    display: flex;
-    align-items: center;
-    color: rgb(92, 92, 92);
-    font-size: 14px;
-    box-sizing: border-box;
-    }
-    /******************
-    Competition Img
-    *******************/
-    .questionnaire-img {
-    width: 70%;
-    height: 70%;
-    }
-    .column {
-    float: left;
-    width: 33%;
-    padding: 5px;
-    }
-    .row::after {
-    content: "";
-    clear: both;
-    display: table;
-    }
-    .column_wireframe {
-    float: left;
-    width: 50%;
-    }
-    /******************
-    Team
-    *******************/
-    .column_1 {
-    float: left;
-    width: 33.3%;
-    margin-bottom: 16px;
-    padding: 0 8px;
-    }
-    .column_2 {
-    float: left;
-    width: 100%;
-    margin-bottom: 16px;
-    padding: 0 8px;
-    }
-    @media screen and (max-width: 650px) {
-    .column_1 {
-    width: 100%;
-    display: block;
-    }
-    }
-    .card_1 {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    }
-    .container_1 {
-    padding: 0 16px;
-    }
-    .container_1::after, .row_1::after {
-    content: "";
-    clear: both;
-    display: table;
-    }
-    .title_1 {
-    color: grey;
-    }
-    .button_1 {
-    border: none;
-    outline: 0;
-    display: inline-block;
-    padding: 8px;
-    color: white;
-    background-color: #000;
-    text-align: center;
-    cursor: pointer;
-    width: 100%;
-    }
-    .button_1:hover {
-    background-color: #555;
-    }
-    /******************
-    Further
-    *******************/
-    hr {
-    display: block;
-    height: 1px;
-    border: 0;
-    border-top: 1px solid rgb(92, 92, 92);
-    margin: 1em 0;
-    padding: 0;
-    }
-    /***
-    TIMELINE
-    ***/
-    .timeline {
+.timeline {
+    border-left: 3px solid #727cf5;
+    border-bottom-right-radius: 4px;
+    border-top-right-radius: 4px;
+    background: rgba(114, 124, 245, 0.09);
+    margin: 0 auto;
+    letter-spacing: 0.2px;
+    position: relative;
+    line-height: 1.4em;
+    font-size: 1.03em;
+	min-width: 300px;
+    padding: 50px;
     list-style: none;
-    padding: 20px 0 20px;
-    position: relative;
+    text-align: left;
+    max-width: 40%;
+}
+
+@media (max-width: 767px) {
+    .timeline {
+        max-width: 98%;
+        padding: 25px;
     }
-    .timeline:before {
-    top: 0;
-    bottom: 0;
-    position: absolute;
-    content: " ";
-    width: 3px;
-    background-image: url("./resources/bricks.jpeg");;
-    left: 35%;
-    margin-left: -1.5px;
-    }
-    .timeline > li {
-    display: block;
-    margin-bottom: 20px;
-    position: relative;
-    }
-    .timeline > li:before,
-    .timeline > li:after {
-    content: " ";
-    display: table;
-    }
-    .timeline > li:after {
-    clear: both;
-    }
-    .timeline > li:before,
-    .timeline > li:after {
-    content: " ";
-    display: table;
-    }
-    .timeline > li:after {
-    clear: both;
-    }
-    .timeline > li > .timeline-panel {
-    background-color: #b3ccff;;
-    width: 30%;
-    float: left;
-    border: 1px solid #d4d4d4;
-    border-radius: 2px;
-    padding: 20px;
-    position: relative;
-    -webkit-box-shadow: 0 1px 6px rgba(0, 0, 0, 0.175);
-    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.175);
-    }
-    .timeline > li > .timeline-panel:before {
-    position: absolute;
-    top: 26px;
-    right: -15px;
-    display: inline-block;
-    border-top: 15px solid transparent;
-    border-left: 15px solid #ccc;
-    border-right: 0 solid #ccc;
-    border-bottom: 15px solid transparent;
-    content: " ";
-    }
-    .timeline > li > .timeline-panel:after {
-    position: absolute;
-    top: 27px;
-    right: -14px;
-    display: inline-block;
-    border-top: 14px solid transparent;
-    border-left: 14px solid #fff;
-    border-right: 0 solid #fff;
-    border-bottom: 14px solid transparent;
-    content: " ";
-    }
-    .timeline > li > .timeline-badge {
-    color: #000;
-    width: 50px;
-    height: 50px;
-    line-height: 50px;
+}
+
+.timeline h1 {
+    font-weight: 300;
     font-size: 1.4em;
-    text-align: center;
-    position: absolute;
-    top: 16px;
-    left: 35%;
-    margin-left: -25px;
-    background-color: #999999;
-    z-index: 100;
-    border-top-right-radius: 50%;
-    border-top-left-radius: 50%;
-    border-bottom-right-radius: 50%;
-    border-bottom-left-radius: 50%;
+}
+
+.timeline h2,
+.timeline h3 {
+    font-weight: 600;
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+.timeline .event {
+    border-bottom: 1px dashed #e8ebf1;
+    padding-bottom: 25px;
+    margin-bottom: 25px;
+    position: relative;
+}
+
+@media (max-width: 767px) {
+    .timeline .event {
+        padding-top: 30px;
     }
-    .timeline > li.timeline-inverted > .timeline-panel {
-    float: right;
-    left: -30%;
-    }
-    .timeline > li.timeline-inverted > .timeline-panel:before {
-    border-left-width: 0;
-    border-right-width: 15px;
-    left: -15px;
-    right: auto;
-    }
-    .timeline > li.timeline-inverted > .timeline-panel:after {
-    border-left-width: 0;
-    border-right-width: 14px;
-    left: -14px;
-    right: auto;
-    }
-    .timeline-badge.primary {
-    background-color: #f3e5f5 !important;
-    }
-    .timeline-badge.success {
-    background-color: #fce4ec !important;
-    }
-    .timeline-badge.warning {
-    background-color: #ffcdd2 !important;
-    }
-    .timeline-badge.danger {
-    background-color: #f8bdd0 !important;
-    }
-    .timeline-badge.info {
-    background-color: #ef9a9a !important;
-    }
-    .timeline-title {
-    margin-top: 0;
-    color: inherit;
-    }
-    .timeline-body > p,
-    .timeline-body > ul {
+}
+
+.timeline .event:last-of-type {
+    padding-bottom: 0;
     margin-bottom: 0;
+    border: none;
+}
+
+.timeline .event:before,
+.timeline .event:after {
+    position: absolute;
+    display: block;
+    top: 0;
+}
+
+.timeline .event:before {
+    left: -207px;
+    content: attr(data-date);
+    text-align: right;
+    font-weight: 100;
+    font-size: 0.9em;
+    min-width: 120px;
+}
+
+@media (max-width: 767px) {
+    .timeline .event:before {
+        left: 0px;
+        text-align: left;
     }
-    .timeline-body > p + p {
-    margin-top: 5px;
+}
+
+.timeline .event:after {
+    -webkit-box-shadow: 0 0 0 3px #727cf5;
+    box-shadow: 0 0 0 3px #727cf5;
+    left: -55.8px;
+    background: #fff;
+    border-radius: 50%;
+    height: 9px;
+    width: 9px;
+    content: "";
+    top: 5px;
+}
+
+@media (max-width: 767px) {
+    .timeline .event:after {
+        left: -31.8px;
     }
-    a:hover {
-    text-decoration: none;
-    }
-  </style>
-  <body>
-    <div class="w3-top">
-      <div class="w3-bar" id="myNavbar">
-        <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-left" href="javascript:void(0);" onclick="toggleFunction()" title="Toggle Navigation Menu">
-        <i class="fa fa-bars"></i>
-        </a>
-        <div class="home-nav w3-left w3-hide-medium w3-hide-small" style="display:block; margin: 0 auto;">
-          <svg width="140" height="54" class="navbar-item">
-            <a href="#home">
-              <circle cx="70"
-                cy="23"
-                r="15"
-                stroke="transparent" stroke-width="5"
-                fill="none"
-                />
-              <text x="70" y="25"
-                text-anchor="middle"
-                alignment-baseline="middle">
-                HOME
-              </text>
-            </a>
-          </svg>
-        </div>
-        <div class="rest-nav w3-right w3-hide-medium w3-hide-small" style="display:block; margin: 0 auto;">
-          <svg width="200" height="50" class="navbar-item">
-            <a href="#building_process">
-              <circle cx="100"
-                cy="25"
-                r="12"
-                stroke="transparent" stroke-width="5"
-                fill="none"
-                />
-              <text x="100" y="25"
-                text-anchor="middle"
-                alignment-baseline="middle">
-                BUILDING PROCESS
-              </text>
-            </a>
-          </svg>
-        </div>
-        <div class="rest-nav w3-right w3-hide-medium w3-hide-small" style="display:block; margin: 0 auto;">
-          <svg width="80" height="50" class="navbar-item">
-            <a href="#contact">
-              <circle cx="40"
-                cy="25"
-                r="12"
-                stroke="transparent" stroke-width="5"
-                fill="none"
-                />
-              <text x="40" y="25"
-                text-anchor="middle"
-                alignment-baseline="middle">
-                TEAM
-              </text>
-            </a>
-          </svg>
-        </div>
-      </div>
-      <!-- Navbar on small screens -->
-      <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
-        <a href="#contact" class="w3-bar-item w3-button" onclick="toggleFunction()">TEAM</a>
-        <a href="#building_process" class="w3-bar-item w3-button" onclick="toggleFunction()">BUILDING PROCESS</a>
-      </div>
-    </div>
-    <div class="bgimg-1 w3-display-container" id="home">
-      <div class="w3-display-middle" style="white-space:nowrap;">
-      </div>
-    </div>
-    <!-- Container (About Section) -->
-    <div class="w3-content w3-container w3-padding-64 container-cut" id="building_process">
-      <div class="container">
-        <div class="heading1">
-          <h1 id="timeline">Building process</h1>
-        </div>
-        <ul class="timeline">
-          <li>
-            <div class="timeline-badge primary"><img src="./resources/paper.png" style="height:40px"></div>
-            <div class="timeline-panel">
-              <div class="timeline-heading">
-                <h4 class="timeline-title"><em><b>Project Description</b></em></h4>
-              </div>
-              <div class="timeline-body">
-                <p><b>Deadline: 19 October 2020</b></p>
-                <p><i>Bizy: all you need to know about us </i></p>
-                <svg width="140" height="54" class="button-item">
-                  <a href="#milestone1">
-                    <circle cx="70"
-                      cy="23"
-                      r="15"
-                      stroke="transparent" stroke-width="5"
-                      fill="none"
-                      />
-                    <text x="70" y="25"
-                      text-anchor="middle"
-                      alignment-baseline="middle">
-                      Read More
-                    </text>
-                  </a>
-                </svg>
-              </div>
-            </div>
-          </li>
-          <li class="timeline-inverted">
-            <div class="timeline-badge primary"><img src="./resources/check.png" style="height:40px"></div>
-            <div class="timeline-panel">
-              <div class="timeline-heading">
-                <h4 class="timeline-title"><em><b>Problem&Idea validation</b></em></h4>
-              </div>
-              <div class="timeline-body">
-                <p><b>Deadline: 2 November 2020</b></p>
-                <p><i>Discovering our customers</i></p>
-                <svg width="140" height="54" class="button-item">
-                  <a href="#milestone2">
-                    <circle cx="70"
-                      cy="23"
-                      r="15"
-                      stroke="transparent" stroke-width="5"
-                      fill="none"
-                      />
-                    <text x="70" y="25"
-                      text-anchor="middle"
-                      alignment-baseline="middle">
-                      Read More
-                    </text>
-                  </a>
-                </svg>
-              </div>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </div>
-    <div class="w3-content w3-container w3-padding-64 container-cut" id="milestone1">
-      <p class="milestone">1<sup>st</sup> Milestone</p>
-      <h3 class="heading1"><br>Identified problem</h3>
-      <p>
-        <img src="./resources/problem.png" alt="Bogdan" style="width:20%">
-      <p>Business meetings are the fastest way of growing up your business. Meeting with people means 
-        creating new connections, exchanging ideas and evolving. The problem is that you meet new 
-        people whose names you forget the next second you hear. The simplest solution would be to use 
-        business cards in order to keep track of your new acquaintances, but these either end up in the 
-        trash or in a drawer and when you need them, searching through them is a time consuming process. 
-      </p>
-      <p>Another problem identified is beeing at a social gathering where you meet new people, or even known people, 
-        you socialize and at the end you realise that you have been chatting with someone all night and you did not 
-        exchange phone numbers or even Facebook progiles. This is the moment when you realise that you can not keep 
-        in touch with that person until the next gathering (maybe).
-      </p>
-      </p>
-      <h3 class="heading1"><br>Proposed solution</h3>
-      <p>
-        <img src="./resources/solution.png" alt="Bogdan" style="width:20%">
-      <p><b>Bizy</b> is a cross-platform application that allows both the exchange of personal data with somebody else in a 
-        simple and quick manner and a fast searching engine. Just by touching your phone, your profile is automatically sent to 
-        the other user: name, phone, email, social media profiles, job related info and anything else 
-        that comes to your mind, using the additional data field.
-      </p>
-      <p>Our application also allows you to get the list of participants from a certain event that you attended using the 
-        <i>Maybe you know</i> list. If they want to share their profile with the other guests, you may quickly link to them and 
-        find out, for example, who can become your next employer.
-      </p>
-      <p>Bizy can be simply used by anyone, even if they are teens or adults, even if they are students. Anyone 
-        can create their profile and exchange data. 
-      </p>
-      <p>Our product is oriented in saving the environment. By using <b>Bizy</b>, the consumption of the 
-        materials that business cards are crafted from will drop and an increase in productivity will be 
-        spotted. The application brings lots of gains both for people and environment. 
-      </p>
-      </p>
-      <!-- Customer Segment -->
-      <h3 class="heading1"><br>Targeted customer segment</h3>
-      <img src="./resources/customers.png" alt="Bogdan" style="width:20%">
-      <p>
-        The targeted segment is the business segment because business meetings end up with cards 
-        exchanges. This segment can benefit from our fast exchange application that will increase their 
-        productivity.
-      </p>
-      <p>
-        But the business segment is not the only one targeted by <b>Bizy</b>. Anyone can use our application 
-        because it is easy and has an intuitive interface. Even if you are a student, maybe at an interview 
-        you have the occasion to exchange data with your interviewer, or maybe you meet someone at a 
-        social event that gets interested in your background experience and it end up with you beeing hired. 
-        The application will help you exchange data with anyone and will increase your professionalism.
-      </p>
-      <h3 class="heading1"><br>Competition</h3>
-      <br />
-      <div class="row">
-        <div class="column">
-          <img src="./resources/card.png" alt="Classic business cards" style="height:100px">
-          <p>Classical business cards</p>
-        </div>
-        <div class="column">
-          <a href="https://www.abbyy.com/products/mobile/business-card-reader/en/">
-          <img src="./resources/abbyy.png" alt="Abbyy" style="height:100px">
-          </a>
-          <p>ABBYY Business Card Reader</p>
-        </div>
-        <div class="column">
-          <a href="https://www.camcard.com/">
-          <img src="./resources/camcard.png" alt="CamCard" style="height:100px">
-          </a>
-          <p>CamCard</p>
-        </div>
-      </div>
-      <div class="row">
-        <div class="column">
-          <a href="https://play.google.com/store/apps/details?id=com.app.cardhq&hl=en_US&gl=US">
-          <img src="./resources/cardhq.png" alt="CardHQ" style="height:70px">
-          </a>
-          <p>CardHQ</p>
-        </div>
-        <div class="column">
-          <a href="https://www.scanbizcards.com/">
-          <img src="./resources/scanbizcards.png" alt="ScanBizCards" style="height:50px">
-          </a>
-          <p>ScanBizCards</p>
-        </div>
-        <div class="column">
-          <img src="./resources/others.jpg" alt="ScanBizCards" style="height:120px">
-        </div>
-      </div>
-      <h3 class="heading1"><br>Our advantages</h3>
-      <img src="./resources/advantages.png" alt="Bogdan" style="width:20%">
-      <ul>
-        <li>1. NFC technology that allows fast exchange of data</li>
-        <li>2. PeopleAround technology that allows you to collect data from people around</li>
-        <li>3. Fast search engine that allows you to search using keyords from all available fields</li>
-        <li>4. Complex profile that allows you to add Facebook, Twitter, Skype, GitHub, LinkedIn and even your personal blog</li>
-      </ul>
-      <h3 class="heading1"><br>Key metrics</h3>
-      <img src="./resources/metrics.png" alt="Bogdan" style="width:20%">
-      <ul>
-        <li>1. How fast is the data transfer? </li>
-        <li>2. How easy is the data transfer? </li>
-        <li>3. How easy is the application usage? </li>
-        <li>4. How fast is the search engine? </li>
-        <li>5. How protected is your data using PeopleAround? </li>
-        <li>6. How good is the AI predictor that suggests people after using PeopleAround? </li>
-        <li>7. How many people download&use the application? </li>
-        <li>8. What is the average age of people interested in our application? </li>
-      </ul>
-      <h3 class="heading1"><br>Cost structure</h3>
-      <img src="./resources/costs.png" alt="Bogdan" style="width:20%">
-      <p> Regarding costs, we have to mention fixed and variable costs. Since we are at the beginning, 
-        variable costs are absent, but we still have some fixed costs that imply, mainly, the 
-        development of the application.
-      </p>
-      <ul>
-        <div class="row_1">
-          <div class="column_2">
-            <h4>Fixed costs</h4>
-            <h9>Rent, Utilities, Maintenance</h9>
-            <div class="progress" style="width:100%">
-              <div class="progress-bar progress-bar-striped active" style="width:0%">0%</div>
-            </div>
-            <h9>Hardware</h9>
-            <div class="progress" style="width:100%">
-              <div class="progress-bar progress-bar-striped active" style="width:20%">20%</div>
-            </div>
-            <h9>Software (licenses, subscriptions)</h9>
-            <div class="progress" style="width:100%">
-              <div class="progress-bar progress-bar-striped active" style="width:20%">20%</div>
-            </div>
-            <h9>Marketing & Advertisement</h9>
-            <div class="progress" style="width:100%">
-              <div class="progress-bar progress-bar-striped active" style="width:50%">50%</div>
-            </div>
-            <h9>Bank charges</h9>
-            <div class="progress" style="width:100%">
-              <div class="progress-bar progress-bar-striped active" style="width:10%">10%</div>
-            </div>
-          </div>
-        </div>
-      </ul>
-      <h3 class="heading1"><br>Revenue streams</h3>
-      <img src="./resources/revenue.png" alt="Bogdan" style="width:20%">
-      <p> Main sources of revenue are:</p>
-      <ul>
-        <div class="row_1">
-          <div class="column_2">
-            <h9>Free trial application download (10 contacts can be added)</h9>
-            <div class="progress" style="width:100%">
-              <div class="progress-bar progress-bar-striped active" style="width:0%">0%</div>
-            </div>
-            <h9>Partners that want the application for their employees</h9>
-            <div class="progress" style="width:100%">
-              <div class="progress-bar progress-bar-striped active" style="width:10%">10%</div>
-            </div>
-            <h9>Extend contact limit with certain amount</h9>
-            <div class="progress" style="width:100%">
-              <div class="progress-bar progress-bar-striped active" style="width:25%">25%</div>
-            </div>
-            <h9>Application with no limits and no advertisements</h9>
-            <div class="progress" style="width:100%">
-              <div class="progress-bar progress-bar-striped active" style="width:25%">25%</div>
-            </div>
-            <h9>Advertisements from the free application</h9>
-            <div class="progress" style="width:100%">
-              <div class="progress-bar progress-bar-striped active" style="width:40%">40%</div>
-            </div>
-          </div>
-        </div>
-      </ul>
-    </div>
-    <div class="w3-content w3-container w3-padding-64 container-cut" id="milestone2">
-      <p class="milestone">2<sup>nd</sup> Milestone</p>
-      <h3 class="heading1"><br>Identifying the problem</h3>
-      <p>
-        <img src="./resources/identify.png" alt="Bogdan" style="width:20%">
-        <p>
-          The idea appeared when one of us was taken to a business meeting by his father. After long 
-          discussions, all the participants exchanged these coloured, small pieces of paper named business cards.
-          The first question that came into his mind was: "Why do they still use these paper cards when they can use
-          their smartphones? It has to be an application for that.".
-        </p>
-        <p>
-          After some research, at that time, there was no application for 
-          doing this exchage quick and simple. Moreover, the people that were involved in the meeting were asked the same question and they replied 
-          that they do not know about such an application, but it would be useful and more esier to search through all of 
-          these cards when you need an info. Also, asked to be honest and say what are they going to do 
-          with what they received, they said that probably it will be kept in a stack full of other 
-          business cards in their office.
-        </p>
-        <p>
-          For that moment, we could only conclude that is was not the right time for such an upgrade because 
-          it could not fulfill the needs of the people that would use it and also that there is a problem that can be solved.
-        </p>
-        <p>
-          Some years later, we are still asking people the same question, what are the advantages and disadvantages 
-          of using paper business cards, what do they think about using their phone in order to exchange these data 
-          and why do they still feel the need of using these cards.
-        </p>
-      </p>
-      <h3 class="heading1"><br>Solution for the problem</h3>
-      <p>
-        <img src="./resources/sol.png" alt="Bogdan" style="width:20%">
-        <p>
-        Having the clear problem in mind, we decided that the solution that would best solve it is connecting people 
-        attending the same meeting easier with their most used tool, smartphones.
-        </p>
+}
 
-        <p>
-        We believe in Bizy as an application that will be capable of storing the relevant information for a person and 
-        be ready to exchange it at any moment. The person will allow Bizy to share the data that he desires from his profile. The core 
-        is time effieciency and increase in producitivity because the more people connect and build together, the better 
-        projects are developed.
-        </p>
+.rtl .timeline {
+    border-left: 0;
+    text-align: right;
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 4px;
+    border-top-left-radius: 4px;
+    border-right: 3px solid #727cf5;
+}
 
-        <p>
-        Moreover, our connecting application can be used as a searching and information gathering tool regarding the 
-        events attended and its people. A standard feature we consider is "Maybe you know". A curious mind can use this 
-        feature to discover certain persons with similar interests or job roles, eager to get in touch.
-        </p>
+.rtl .timeline .event::before {
+    left: 0;
+    right: -170px;
+}
 
-        <p>
-        Bizy also understands the problems the environment is facing and aims to help by providing the online alternative 
-        of traditional printed bussiness cards. Migrating into online encourage people to stop producing a considerable 
-        ammount of paper, that most of the time ends up lost between documents.
-        </p>
+.rtl .timeline .event::after {
+    left: 0;
+    right: -55.8px;
+}
+</style>
 
-      </p>
-      <h3 class="heading1"><br>Plan for customer discovery</h3>
-      <p>
-        <img src="./resources/customer_discovery.png" alt="Bogdan" style="width:20%">
-        <p>
-          In order to gather usefull information about the potential client we thought that it would help to give questionnaires to young people,
-          fresh graduates or bachelor students mainly (an easier segment due to the fact that we can reach the segment faster), people in the business
-          environment (the segment we think that is going to embrace our solution the most) and older people(the segment from which we don't expect the 
-          most clients but we wanted to know how much our idea represents a solution for them too because it is important when creating the MVP).
-        </p>
-        <p>
-          Reaching the first segment of potential clients is easier because the age difference is not that big and the communication is easier. We are 
-          interested in finding out how they transfer information between them currently, not focusing on things like chatting but more precisely what the 
-          chatting contains(e-mail addresses, phone numbers, or any other form of identification). This segment is somehow volatile, new applications are 
-          created quite frequentely and we would need to keep up with the pace in order to keep the interest as fresh as possible with easy access to the 
-          newest application after the accounts would be shared.
-        </p>
-        <p>
-          For the second segment we are interested to see if the problem we are trying to solve is actually a problem for them. Because we know we address 
-          to business people we know that the information transfer is more formal(e-mail addresses, calls, conferences) and each information needed for 
-          this kind of communication usually is represented by another account which needs to be somehow shared, process that may take quite a while 
-          considering personal preferences and the evolution of such methods of communication. To reach this segment we could give questionnaires to 
-          people we know from our internships, people from companies that we worked or work for, and ask our acquiantances to spread the word and pass the 
-          questionnaire we created.
-        </p>
-        <p>
-          From the third segment is important to gather information about what are the main methods to communicate(face to face, online, calls, etc.). This 
-          information is usefull because there is a high chance that the potential clients from this segment may not use diverse methods of communication so 
-          if our idea would sound good for them, we would probably need to adapt our solution in such a way that it is not only providing a way of accessing an 
-          existing method but integrate it in order to provide a familiar and at the same time new experience. 
-        </p>
-      </p>
-      <h3 class="heading1"><br>Validating the problem using gathered data</h3>
-      <p>
-        <img src="./resources/valid.png" alt="Bogdan" style="width:20%">
-      </p>
-      <p>
-      	We have shared our form in various places, and we have got 86 responses.
-  		<p>For the demographics, we have more male responders than female responders, and the age group that is represented in the strongest fashion is the 18-24 year old people.</p>
-        <div id="piechart1"></div>
-        <div id="piechart2"></div>
-  		<p>About half of the people who answered claimed to participating to social events at least once a week, with about 37% participating at least twice a week to such events.</p>
-        <div id="piechart3"></div>
-  		<p>The most popular data to exchange is the name, phone number and Facebook profile, although we cannot ignore the company and role in it, the Instagram profile or the E-mail address, each of these having at least a 29% popularity among the respondents.</p>
-        <div id="chart1"></div>
-  		<p>The most common solution, by far, used by our responders was the phonebook, although on the second place (at about 18% of the responses) we notice physical business cards as being a semi-popular choice.</p>
-        <div id="chart2"></div>
-  		<p>As for the most common complaints, two issues have been encountered by more than half of our respondents, namely forgetting to exchange contact details between the participants and simply not getting to know all of them. A few other responses that have showed up in the responses relate to knowledge about the events themselves, as in knowing the host, how formal the event is or the kind of event in the first place.</p>
-        <div id="chart3"></div>
-  		<p>If our responders were to create their own profile to be easily shared, they would choose to share simple contact details, such as name, profile photo, phone number and E-mail address. A significant amount of responders also said that they want to share what company they work at and their role there as well. Relatively fewer want to share LinkedIn, Facebook, Instagram and other social media profiles.</p>
-        <div id="chart4"></div>
-  		<p>The most preferred method to share such a profile is via a mobile/web app, although a public profile available on a social media website seems to also be preferred by half of our respondents. Business cards are also chosen by nearly one third of them.</p>
-        <div id="chart5"></div>
-  		<p>As for places where such a contact data exchance feels needed, there are four situations which are roughly equally represented: Parties, interviews, business meetings and first encounters.</p>
-        <div id="chart6"></div>
-  		<p>More than 66% of our respondents participated in at most 5 business meetings, although a non-negligible amount (about 15%) were at the other extreme and have participated at more than 25 such meetings. Roughly similar proportions can be noticed in the data for the amount of physical business cards that each responder has used.</p>
-        <div id="piechart4"></div>
-        <div id="piechart5"></div>
-  		<p>Most of our respondents store away business cards after receiving them, although slightly more than a quarter copied the data somewhere else and threw away the card itself; these two categories make up more than three quarters of the responses we've received altogether.</p>
-        <div id="chart7"></div>
-  		<p>Users have various reasons to consider business cards attractive, including but not limited to ease of use, completeness of the information, ease of use or ease of storing them away. As for cons to using them, more than 60% of our users consider that pollution (from the ink and paper/metal) and the fact that the information on them easily goes out of date make up the most important issues with them, though 40% of users simply consider them unpopular.</p>
-        <div id="chart8"></div>
-        <div id="chart9"></div>
-  		<p>For the data exchanged at business meetings, most of our respondents shared names, phone numbers, E-mail addresses, as well as the company they're working at and their role there. A less popular but still notable data point, at roughly 28%, is the LinkedIn profile.</p>
-        <div id="chart10"></div>
-  		<p>As for issues in using business cards, nearly 60% of our respondents complain about failing to associate the business card with the actual person they received it, thus making the business card less useful. Other two issues that were popular and tied for second place, at roughly 43%, were one of the participants not having a business card and thus having to write down the info on either paper or the phone manually.</p>
-        <div id="chart11"></div>
-  		<p>For the data that the respondents actually look up in the business cards, the recurring pattern of name, phone number, mail address, company and role within the company shows up again.</p>
-        <div id="chart12"></div>
-  		<p>The problems actually encountered by the respondents can be split in the following categories: data on the cards becoming outdated, failing to find the person among too many business cards, or the info on said cards being irrelevant anyway.</p>
-        <div id="chart13"></div>
-  		<p>As for how much the respondents would spend on an app that would resolve the problem, a quarter wouldn't spend anything, a third would spend up to 2$, while another fifth would spend between 3$ and 5$. In total, nearly three quarters of the responses are up to 5$, and more than half are up to 3$.</p>
-        <div id="piechart6"></div>
-      </p>
-      <h3 class="heading1"><br>Learning from possible customers</h3>
-      <p>
-        <img src="./resources/learning.png" alt="Bogdan" style="width:20%">
-        <p>
-          As result of our validation campaign, the results from our surveys are very encouraging. As a majority of our
-          possible client base, we have answers
-          from young adults and adults that are participating to social events more than one time per week, business
-          events or casual events. In terms
-          of what information is exchanged between individuals, when they want to keep in touch with each other
-          there are a couple of elements
-          that come to our attention:
-          <b>name, phone number and Facebook profile.</b>
-          All this information is saved on the phone of each individual in their phone's contacts and on Facebook app.
-        </p>
-        <p>
-          An encouraging fact for us is that people signaled a need in providing, through an app, a personalised profile that
-          they want to share with other new peers in their
-          social context. From our data, they want to share the most:<b> a profile picture, name, company name and phone
-            number.</b> Moreover, one of the most
-          important challenge that they face in big events is that they don't have the opportunity to get to know
-          all people.
-        </p>
-        <p>Some of the key challenges that we have observed with the traditional contact card are: the information on the
-          card could become outdated and the card can be
-          easily lost. There is one thing to mention, it can exist an unfortunate moment when a person doesn't have a card
-          when the cards are exchanged and this can become
-          frustrating for all the parts involved.
-        </p>
-        <p>Presenting our solution, most of the people that answered the survey showed interest for the idea even if the service
-          could be a charged product.
-        </p>
-      </p>
-      <h3 class="heading1"><br>Making baby steps in the good direction</h3>
-      <p>
-        <img src="./resources/baby.png" alt="Bogdan" style="width:20%">
-        <p>After analyzing the survey data, we noticed people's desire to use a mobile application that would allow a fast data transfer using NFC technology.
-        <p>At the same time, after analyzing the survey data, we observed the need for people to give up the use of business cards.</p>
-        <p>We notice that the majority of people would prefer a mobile application, so we need some time in developing a mobile application maybe compatible with both Android and IOS.</p>
-        <p>The next step is to implement the application and  to combine our ideas with the ideas of potential users who completed the survey. 
-          After implementing the application, we will share the application with close friends. 
-         If we receive positive feedback, we will improve it and launch it for other users as well.
-        </p>
-      </p>
-    </div>
-    <div class="w3-content w3-container w3-padding-64 container-cut" id="contact">
-      <div class="heading1">Our Team</div>
-      <div class="row_1">
-        <div class="column_1">
-          <div class="card_1">
-            <img src="./resources/bf.jpg" alt="Bogdan" style="width:100%">
-            <div class="container_1">
-              <h3>
-              Bogdan-Cristian FIRU&#354;I</h2>
-              <p class="title_1">Project Manager</p>
-              <p></p>
-              <p><button class="button_1" onclick="window.open('mailto:firutibogdan@gmail.com');">Contact</button></p>
-            </div>
-          </div>
-        </div>
-        <div class="column_1">
-          <div class="card_1">
-            <img src="./resources/im.jpg" alt="Ionut" style="width:100%">
-            <div class="container_1">
-              <h3>
-              Ionu&#539; <br>MIHALACHE</h2>
-              <p class="title_1">Back-End Developer</p>
-              <p></p>
-              <p><button class="button_1" onclick="window.open('mailto:ipopescu46@gmail.com');">Contact</button></p>
-            </div>
-          </div>
-        </div>
-        <div class="column_1">
-          <div class="card_1">
-            <img src="./resources/vv.jpg" alt="Vlad" style="width:100%">
-            <div class="container_1">
-              <h3>
-              Vlad-Lauren&#539;iu-Florin VR&#258;JITORU</h2>
-              <p class="title_1">Back-End Developer</p>
-              <p></p>
-              <p><button class="button_1" onclick="window.open('mailto:vladflorinvrajitoru@gmail.com');">Contact</button></p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row_1">
-        <div class="column_1">
-          <div class="card_1">
-            <img src="./resources/po.jpg" alt="Paul" style="width:100%">
-            <div class="container_1">
-              <h3>
-              Paul-Stelian <br> OLARU</h2>
-              <p class="title_1">Full Stack Developer</p>
-              <p></p>
-              <p><button class="button_1" onclick="window.open('mailto:paul_stelian.olaru@stud.acs.upb.ro');">Contact</button></p>
-            </div>
-          </div>
-        </div>
-        <div class="column_1">
-          <div class="card_1">
-            <img src="./resources/cs.jpg" alt="Cristin" style="width:100%">
-            <div class="container_1">
-              <h3>
-              Cristin <br> S&#206;RBU</h2>
-              <p class="title_1">Front-End Developer</p>
-              <p></p>
-              <p><button class="button_1" onclick="window.open('mailto:cristinsirbu@gmail.com');">Contact</button></p>
-            </div>
-          </div>
-        </div>
-        <div class="column_1">
-          <div class="card_1">
-            <img src="./resources/sc.jpg" alt="Serban" style="width:100%">
-            <div class="container_1">
-              <h3>
-              Daniel-	&#350;erban COZMA</h2>
-              <p class="title_1">Front-End Developer</p>
-              <p></p>
-              <p><button class="button_1" onclick="window.open('mailto:cozmaserban@icloud.com');">Contact</button></p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    </div>
-  </body>
+
+<body id="paged_top">
+	<!-- Navigation 2 -->
+	<nav class="pt-30 pb-30 bg-light lh-40 navigation_2 fixed-top">
+		<div class="container px-xl-0">
+			<div class="row align-items-center justify-content-between">
+				<div class="col-xl-2 col-lg-3 text-center text-lg-left" data-aos="fade-down" data-aos-delay="0">
+					<a href="#paged_top" class="link mr-20 color-main f-24 bold">
+						Bizy
+					</a>
+				</div>
+				<div
+					class="col-xl-10 col-lg-9 d-flex flex-wrap align-items-center justify-content-center justify-content-md-between">
+					<div class="mb-10 mb-md-0" data-aos="fade-down" data-aos-delay="250">
+					</div>
+					<div class="text-md-right" data-aos="fade-down" data-aos-delay="500">
+						<a href="#team" class="link mr-15 color-main">
+							Team
+						</a>
+						<a href="#buildingprocess" class="link mx-15 color-main">
+							Building process
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</nav>
+	<!-- Application 1 -->
+	<section class="pt-100 color-white text-center bg-dark color-filter-dark-3 application_1"
+		data-bg-src="i/application_1_bg@2x.jpg" data-bg-src-2x="i/application_1_bg@2x.jpg">
+		<div class="container px-xl-0">
+			<div class="row justify-content-center">
+				<div class="col-lg-10">
+					<img src="i/application_1_logo.png" srcset="i/application_1_logo@2x.png 2x" alt=""
+						data-aos="fade-down" data-aos-delay="0">
+					<h2 class="mt-30" data-aos="fade-down" data-aos-delay="250">
+						Bizy
+					</h2>
+				</div>
+				<div class="col-sm-11 col-md-9 col-lg-7 col-xl-5">
+					<div class="mt-15 f-22 medium op-7 text-adaptive" data-aos="fade-down" data-aos-delay="500">
+						No paper waste. Easy to use. Fast.
+					</div>
+				</div>
+				<div class="col-12">
+					<img src="i/application_1_img.png" srcset="i/application_1_img@2x.png 2x" alt=""
+						class="mt-60 img-fluid">
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Content 2 -->
+	<section class="pt-105 pb-95 bg-light content_2">
+		<div class="container px-xl-0 text-center">
+			<div class="row justify-content-center">
+				<div class="col-xl-8 col-lg-10">
+					<h2 data-aos="fade-down" data-aos-delay="0" id="buildingprocess">
+						Building process
+					</h2>
+				</div>
+				<div class="col-xl-7 col-lg-9 col-md-10">
+					<div class="d-flex justify-content-center">
+						<div class="row">
+							<div data-aos="fade-down" data-aos-delay="250" class="col-lg-12">
+									<div class="card-body">
+										<div id="content">
+											<ul class="timeline">
+												<li class="event" data-date="19 October 2020">
+													<h3>Project Description</h3>
+													<p>Bizy: all you need to know about us </p>
+													<a href="#milestone1">Read More</a>
+												</li>
+												<li class="event" data-date="2 November 2020">
+													<h3>Problem&Idea validation</h3>
+													<p>Discovering our customers</p>
+													<a href="#milestone2">Read More</a>
+												</li>
+											</ul>
+										</div>
+									</div>
+							</div>
+						</div>
+						
+
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Content 1 -->
+	<section class="pt-80 pb-80 bg-light content_1">
+		<div class="container px-xl-0">
+			<div class="row justify-content-center">
+				<div class="col-xl-7 col-lg-10 text-center">
+					<h2 class="mt-25" data-aos="fade-down" data-aos-delay="250" id="milestone1">
+						Milestone #1
+					</h2>
+					<div class="f-14 color-heading semibold text-uppercase sp-20" data-aos="fade-down"
+						data-aos-delay="250">
+						Identified Problem
+					</div>
+
+
+
+					<p data-aos="fade-down" data-aos-delay="250">
+						<img src="./resources/problem.png" alt="Bogdan" style="width:20%">
+					<p data-aos="fade-down" data-aos-delay="250">Business meetings are the fastest way of growing up
+						your business. Meeting with people means
+						creating new connections, exchanging ideas and evolving. The problem is that you meet new
+						people whose names you forget the next second you hear. The simplest solution would be to use
+						business cards in order to keep track of your new acquaintances, but these either end up in the
+						trash or in a drawer and when you need them, searching through them is a time consuming process.
+					</p>
+					<p data-aos="fade-down" data-aos-delay="250">Another problem identified is beeing at a social
+						gathering where you meet new people, or even known people,
+						you socialize and at the end you realise that you have been chatting with someone all night and
+						you did not
+						exchange phone numbers or even Facebook progiles. This is the moment when you realise that you
+						can not keep
+						in touch with that person until the next gathering (maybe).
+					</p>
+					</p>
+					<h3 data-aos="fade-down" data-aos-delay="250" class="heading1"><br>Proposed solution</h3>
+					<p data-aos="fade-down" data-aos-delay="250">
+						<img src="./resources/solution.png" alt="Bogdan" style="width:20%">
+					<p data-aos="fade-down" data-aos-delay="250"><b>Bizy</b> is a cross-platform application that allows
+						both the exchange of personal data with somebody else in a
+						simple and quick manner and a fast searching engine. Just by touching your phone, your profile
+						is automatically sent to
+						the other user: name, phone, email, social media profiles, job related info and anything else
+						that comes to your mind, using the additional data field.
+					</p>
+					<p data-aos="fade-down" data-aos-delay="250"> Our application also allows you to get the list of
+						participants from a certain event that you attended using the
+						<i>Maybe you know</i> list. If they want to share their profile with the other guests, you may
+						quickly link to them and
+						find out, for example, who can become your next employer.
+					</p>
+					<p data-aos="fade-down" data-aos-delay="250">Bizy can be simply used by anyone, even if they are
+						teens or adults, even if they are students. Anyone
+						can create their profile and exchange data.
+					</p>
+					<p data-aos="fade-down" data-aos-delay="250">Our product is oriented in saving the environment. By
+						using <b>Bizy</b>, the consumption of the
+						materials that business cards are crafted from will drop and an increase in productivity will be
+						spotted. The application brings lots of gains both for people and environment.
+					</p>
+					</p>
+					<!-- Customer Segment -->
+					<h3 data-aos="fade-down" data-aos-delay="250" class="heading1"><br>Targeted customer segment</h3>
+					<img data-aos="fade-down" data-aos-delay="250" src="./resources/customers.png" alt="Bogdan"
+						style="width:20%">
+					<p data-aos="fade-down" data-aos-delay="250">
+						The targeted segment is the business segment because business meetings end up with cards
+						exchanges. This segment can benefit from our fast exchange application that will increase their
+						productivity.
+					</p>
+					<p data-aos="fade-down" data-aos-delay="250">
+						But the business segment is not the only one targeted by <b>Bizy</b>. Anyone can use our
+						application
+						because it is easy and has an intuitive interface. Even if you are a student, maybe at an
+						interview
+						you have the occasion to exchange data with your interviewer, or maybe you meet someone at a
+						social event that gets interested in your background experience and it end up with you beeing
+						hired.
+						The application will help you exchange data with anyone and will increase your professionalism.
+					</p>
+					<h3 data-aos="fade-down" data-aos-delay="250" class="heading1"><br>Competition</h3>
+					<br />
+					<div data-aos="fade-down" data-aos-delay="250" class="row">
+						<div class="column">
+							<img src="./resources/card.png" alt="Classic business cards" style="height:100px">
+							<p>Classical business cards</p>
+						</div>
+						<div class="column">
+							<a href="https://www.abbyy.com/products/mobile/business-card-reader/en/">
+								<img src="./resources/abbyy.png" alt="Abbyy" style="height:100px">
+							</a>
+							<p>ABBYY Business Card Reader</p>
+						</div>
+						<div class="column">
+							<a href="https://www.camcard.com/">
+								<img src="./resources/camcard.png" alt="CamCard" style="height:100px">
+							</a>
+							<p>CamCard</p>
+						</div>
+					</div>
+					<div data-aos="fade-down" data-aos-delay="250" class="row">
+						<div class="column">
+							<a href="https://play.google.com/store/apps/details?id=com.app.cardhq&hl=en_US&gl=US">
+								<img src="./resources/cardhq.png" alt="CardHQ" style="height:70px">
+							</a>
+							<p>CardHQ</p>
+						</div>
+						<div class="column">
+							<a href="https://www.scanbizcards.com/">
+								<img src="./resources/scanbizcards.png" alt="ScanBizCards" style="height:50px">
+							</a>
+							<p>ScanBizCards</p>
+						</div>
+						<div class="column">
+							<img src="./resources/others.jpg" alt="ScanBizCards" style="height:120px">
+						</div>
+					</div>
+					<h3 data-aos="fade-down" data-aos-delay="250" class="heading1"><br>Our advantages</h3>
+					<img data-aos="fade-down" data-aos-delay="250" src="./resources/advantages.png" alt="Bogdan"
+						style="width:20%">
+					<ul class="numbered-ul" data-aos="fade-down" data-aos-delay="250">
+						<li class="numbered-li">1. NFC technology that allows fast exchange of data</li>
+						<li class="numbered-li">2. PeopleAround technology that allows you to collect data from people around</li>
+						<li class="numbered-li">3. Fast search engine that allows you to search using keyords from all available fields</li>
+						<li class="numbered-li">4. Complex profile that allows you to add Facebook, Twitter, Skype, GitHub, LinkedIn and
+							even your personal blog</li>
+					</ul>
+					<h3 data-aos="fade-down" data-aos-delay="250" class="heading1"><br>Key metrics</h3>
+					<img data-aos="fade-down" data-aos-delay="250" src="./resources/metrics.png" alt="Bogdan"
+						style="width:20%">
+					<ul class="numbered-ul" data-aos="fade-down" data-aos-delay="250">
+						<li class="numbered-li">1. How fast is the data transfer? </li>
+						<li class="numbered-li">2. How easy is the data transfer? </li>
+						<li class="numbered-li">3. How easy is the application usage? </li>
+						<li class="numbered-li">4. How fast is the search engine? </li>
+						<li class="numbered-li">5. How protected is your data using PeopleAround? </li>
+						<li class="numbered-li">6. How good is the AI predictor that suggests people after using PeopleAround? </li>
+						<li class="numbered-li">7. How many people download&use the application? </li>
+						<li class="numbered-li">8. What is the average age of people interested in our application? </li>
+					</ul>
+					<h3 data-aos="fade-down" data-aos-delay="250" class="heading1"><br>Cost structure</h3>
+					<img data-aos="fade-down" data-aos-delay="250" src="./resources/costs.png" alt="Bogdan"
+						style="width:20%">
+					<p data-aos="fade-down" data-aos-delay="250"> Regarding costs, we have to mention fixed and variable
+						costs. Since we are at the beginning,
+						variable costs are absent, but we still have some fixed costs that imply, mainly, the
+						development of the application.
+					</p>
+					<ul data-aos="fade-down" data-aos-delay="250">
+						<div class="row_1">
+							<div class="column_2">
+								<h4>Fixed costs</h4>
+								<h9>Rent, Utilities, Maintenance</h9>
+								<div class="progress" style="width:100%">
+									<div class="progress-bar progress-bar-striped active" style="width:0%">0%</div>
+								</div>
+								<h9>Hardware</h9>
+								<div class="progress" style="width:100%">
+									<div class="progress-bar progress-bar-striped active" style="width:20%">20%</div>
+								</div>
+								<h9>Software (licenses, subscriptions)</h9>
+								<div class="progress" style="width:100%">
+									<div class="progress-bar progress-bar-striped active" style="width:20%">20%</div>
+								</div>
+								<h9>Marketing & Advertisement</h9>
+								<div class="progress" style="width:100%">
+									<div class="progress-bar progress-bar-striped active" style="width:50%">50%</div>
+								</div>
+								<h9>Bank charges</h9>
+								<div class="progress" style="width:100%">
+									<div class="progress-bar progress-bar-striped active" style="width:10%">10%</div>
+								</div>
+							</div>
+						</div>
+					</ul>
+					<h3 data-aos="fade-down" data-aos-delay="250" class="heading1"><br>Revenue streams</h3>
+					<img data-aos="fade-down" data-aos-delay="250" src="./resources/revenue.png" alt="Bogdan"
+						style="width:20%">
+					<p data-aos="fade-down" data-aos-delay="250"> Main sources of revenue are:</p>
+					<ul data-aos="fade-down" data-aos-delay="250">
+						<div class="row_1">
+							<div class="column_2">
+								<h9>Free trial application download (10 contacts can be added)</h9>
+								<div class="progress" style="width:100%">
+									<div class="progress-bar progress-bar-striped active" style="width:0%">0%</div>
+								</div>
+								<h9>Partners that want the application for their employees</h9>
+								<div class="progress" style="width:100%">
+									<div class="progress-bar progress-bar-striped active" style="width:10%">10%</div>
+								</div>
+								<h9>Extend contact limit with certain amount</h9>
+								<div class="progress" style="width:100%">
+									<div class="progress-bar progress-bar-striped active" style="width:25%">25%</div>
+								</div>
+								<h9>Application with no limits and no advertisements</h9>
+								<div class="progress" style="width:100%">
+									<div class="progress-bar progress-bar-striped active" style="width:25%">25%</div>
+								</div>
+								<h9>Advertisements from the free application</h9>
+								<div class="progress" style="width:100%">
+									<div class="progress-bar progress-bar-striped active" style="width:40%">40%</div>
+								</div>
+							</div>
+						</div>
+					</ul>
+
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Content 1 -->
+	<section class="pt-80 pb-80 bg-light content_1">
+		<div class="container px-xl-0">
+			<div class="row justify-content-center">
+				<div class="col-xl-7 col-lg-10 text-center">
+
+					<h2 class="mt-25" data-aos="fade-down" data-aos-delay="250" id="milestone2">
+						Milestone #2
+					</h2>
+					<div class="f-14 color-heading semibold text-uppercase sp-20" data-aos="fade-down"
+						data-aos-delay="0">
+						Identifying the problem
+					</div>
+
+					<p data-aos="fade-down" data-aos-delay="250">
+						<img src="./resources/identify.png" alt="Bogdan" style="width:20%" data-aos="fade-down"
+							data-aos-delay="250">
+					<p data-aos="fade-down" data-aos-delay="250">
+						The idea appeared when one of us was taken to a business meeting by his father. After long
+						discussions, all the participants exchanged these coloured, small pieces of paper named business
+						cards.
+						The first question that came into his mind was: "Why do they still use these paper cards when
+						they can use
+						their smartphones? It has to be an application for that.".
+					</p>
+					<p data-aos="fade-down" data-aos-delay="250">
+						After some research, at that time, there was no application for
+						doing this exchage quick and simple. Moreover, the people that were involved in the meeting were
+						asked the same question and they replied
+						that they do not know about such an application, but it would be useful and more esier to search
+						through all of
+						these cards when you need an info. Also, asked to be honest and say what are they going to do
+						with what they received, they said that probably it will be kept in a stack full of other
+						business cards in their office.
+					</p>
+					<p data-aos="fade-down" data-aos-delay="250">
+						For that moment, we could only conclude that is was not the right time for such an upgrade
+						because
+						it could not fulfill the needs of the people that would use it and also that there is a problem
+						that can be solved.
+					</p>
+					<p data-aos="fade-down" data-aos-delay="250">
+						Some years later, we are still asking people the same question, what are the advantages and
+						disadvantages
+						of using paper business cards, what do they think about using their phone in order to exchange
+						these data
+						and why do they still feel the need of using these cards.
+					</p>
+					</p>
+					<h4 data-aos="fade-down" data-aos-delay="250"><br>Solution for the problem</h3>
+						<p>
+							<img data-aos="fade-down" data-aos-delay="250" src="./resources/sol.png" alt="Bogdan"
+								style="width:20%">
+						<p data-aos="fade-down" data-aos-delay="250">
+							Having the clear problem in mind, we decided that the solution that would best solve it is
+							connecting people
+							attending the same meeting easier with their most used tool, smartphones.
+						</p>
+
+						<p data-aos="fade-down" data-aos-delay="250">
+							We believe in Bizy as an application that will be capable of storing the relevant
+							information for a person and
+							be ready to exchange it at any moment. The person will allow Bizy to share the data that he
+							desires from his profile. The core
+							is time effieciency and increase in producitivity because the more people connect and build
+							together, the better
+							projects are developed.
+						</p>
+
+						<p data-aos="fade-down" data-aos-delay="250">
+							Moreover, our connecting application can be used as a searching and information gathering
+							tool regarding the
+							events attended and its people. A standard feature we consider is "Maybe you know". A
+							curious mind can use this
+							feature to discover certain persons with similar interests or job roles, eager to get in
+							touch.
+						</p>
+
+						<p data-aos="fade-down" data-aos-delay="250">
+							Bizy also understands the problems the environment is facing and aims to help by providing
+							the online alternative
+							of traditional printed bussiness cards. Migrating into online encourage people to stop
+							producing a considerable
+							ammount of paper, that most of the time ends up lost between documents.
+						</p>
+
+						</p>
+						<h4 data-aos="fade-down" data-aos-delay="250"><br>Plan for customer discovery</h3>
+							<p>
+								<img data-aos="fade-down" data-aos-delay="250" src="./resources/customer_discovery.png"
+									alt="Bogdan" style="width:20%">
+							<p data-aos="fade-down" data-aos-delay="250">
+								In order to gather usefull information about the potential client we thought that it
+								would help to give questionnaires to young people,
+								fresh graduates or bachelor students mainly (an easier segment due to the fact that we
+								can reach the segment faster), people in the business
+								environment (the segment we think that is going to embrace our solution the most) and
+								older people(the segment from which we don't expect the
+								most clients but we wanted to know how much our idea represents a solution for them too
+								because it is important when creating the MVP).
+							</p>
+							<p data-aos="fade-down" data-aos-delay="250">
+								Reaching the first segment of potential clients is easier because the age difference is
+								not that big and the communication is easier. We are
+								interested in finding out how they transfer information between them currently, not
+								focusing on things like chatting but more precisely what the
+								chatting contains(e-mail addresses, phone numbers, or any other form of identification).
+								This segment is somehow volatile, new applications are
+								created quite frequentely and we would need to keep up with the pace in order to keep
+								the interest as fresh as possible with easy access to the
+								newest application after the accounts would be shared.
+							</p>
+							<p data-aos="fade-down" data-aos-delay="250">
+								For the second segment we are interested to see if the problem we are trying to solve is
+								actually a problem for them. Because we know we address
+								to business people we know that the information transfer is more formal(e-mail
+								addresses, calls, conferences) and each information needed for
+								this kind of communication usually is represented by another account which needs to be
+								somehow shared, process that may take quite a while
+								considering personal preferences and the evolution of such methods of communication. To
+								reach this segment we could give questionnaires to
+								people we know from our internships, people from companies that we worked or work for,
+								and ask our acquiantances to spread the word and pass the
+								questionnaire we created.
+							</p>
+							<p data-aos="fade-down" data-aos-delay="250">
+								From the third segment is important to gather information about what are the main
+								methods to communicate(face to face, online, calls, etc.). This
+								information is usefull because there is a high chance that the potential clients from
+								this segment may not use diverse methods of communication so
+								if our idea would sound good for them, we would probably need to adapt our solution in
+								such a way that it is not only providing a way of accessing an
+								existing method but integrate it in order to provide a familiar and at the same time new
+								experience.
+							</p>
+							</p>
+							<h4 data-aos="fade-down" data-aos-delay="250"><br>Validating the problem using gathered data
+								</h3>
+								<p data-aos="fade-down" data-aos-delay="250">
+									<img src="./resources/valid.png" alt="Bogdan" style="width:20%">
+								</p>
+								<p data-aos="fade-down" data-aos-delay="250">
+									We have shared our form in various places, and we have got 86 responses.
+								<p data-aos="fade-down" data-aos-delay="250">For the demographics, we have more male
+									responders than female responders, and the age group that is represented in the
+									strongest fashion is the 18-24 year old people.</p>
+								<div id="piechart1"></div>
+								<div id="piechart2"></div>
+								<p data-aos="fade-down" data-aos-delay="250">About half of the people who answered claimed to participating to social events at
+									least once a week, with about 37% participating at least twice a week to such
+									events.</p>
+								<div id="piechart3"></div>
+								<p data-aos="fade-down" data-aos-delay="250">The most popular data to exchange is the name, phone number and Facebook profile,
+									although we cannot ignore the company and role in it, the Instagram profile or the
+									E-mail address, each of these having at least a 29% popularity among the
+									respondents.</p>
+								<div id="chart1"></div>
+								<p data-aos="fade-down" data-aos-delay="250">The most common solution, by far, used by our responders was the phonebook, although
+									on the second place (at about 18% of the responses) we notice physical business
+									cards as being a semi-popular choice.</p>
+								<div id="chart2"></div>
+								<p data-aos="fade-down" data-aos-delay="250">As for the most common complaints, two issues have been encountered by more than half
+									of our respondents, namely forgetting to exchange contact details between the
+									participants and simply not getting to know all of them. A few other responses that
+									have showed up in the responses relate to knowledge about the events themselves, as
+									in knowing the host, how formal the event is or the kind of event in the first
+									place.</p>
+								<div id="chart3"></div>
+								<p data-aos="fade-down" data-aos-delay="250">If our responders were to create their own profile to be easily shared, they would
+									choose to share simple contact details, such as name, profile photo, phone number
+									and E-mail address. A significant amount of responders also said that they want to
+									share what company they work at and their role there as well. Relatively fewer want
+									to share LinkedIn, Facebook, Instagram and other social media profiles.</p>
+								<div id="chart4"></div>
+								<p data-aos="fade-down" data-aos-delay="250">The most preferred method to share such a profile is via a mobile/web app, although a
+									public profile available on a social media website seems to also be preferred by
+									half of our respondents. Business cards are also chosen by nearly one third of them.
+								</p>
+								<div id="chart5"></div>
+								<p data-aos="fade-down" data-aos-delay="250">As for places where such a contact data exchance feels needed, there are four
+									situations which are roughly equally represented: Parties, interviews, business
+									meetings and first encounters.</p>
+								<div id="chart6"></div>
+								<p data-aos="fade-down" data-aos-delay="250">More than 66% of our respondents participated in at most 5 business meetings,
+									although a non-negligible amount (about 15%) were at the other extreme and have
+									participated at more than 25 such meetings. Roughly similar proportions can be
+									noticed in the data for the amount of physical business cards that each responder
+									has used.</p>
+								<div id="piechart4"></div>
+								<div id="piechart5"></div>
+								<p data-aos="fade-down" data-aos-delay="250">Most of our respondents store away business cards after receiving them, although
+									slightly more than a quarter copied the data somewhere else and threw away the card
+									itself; these two categories make up more than three quarters of the responses we've
+									received altogether.</p>
+								<div id="chart7"></div>
+								<p data-aos="fade-down" data-aos-delay="250">Users have various reasons to consider business cards attractive, including but not
+									limited to ease of use, completeness of the information, ease of use or ease of
+									storing them away. As for cons to using them, more than 60% of our users consider
+									that pollution (from the ink and paper/metal) and the fact that the information on
+									them easily goes out of date make up the most important issues with them, though 40%
+									of users simply consider them unpopular.</p>
+								<div id="chart8"></div>
+								<div id="chart9"></div>
+								<p data-aos="fade-down" data-aos-delay="250">For the data exchanged at business meetings, most of our respondents shared names,
+									phone numbers, E-mail addresses, as well as the company they're working at and their
+									role there. A less popular but still notable data point, at roughly 28%, is the
+									LinkedIn profile.</p>
+								<div id="chart10"></div>
+								<p data-aos="fade-down" data-aos-delay="250">As for issues in using business cards, nearly 60% of our respondents complain about
+									failing to associate the business card with the actual person they received it, thus
+									making the business card less useful. Other two issues that were popular and tied
+									for second place, at roughly 43%, were one of the participants not having a business
+									card and thus having to write down the info on either paper or the phone manually.
+								</p>
+								<div id="chart11"></div>
+								<p data-aos="fade-down" data-aos-delay="250">For the data that the respondents actually look up in the business cards, the
+									recurring pattern of name, phone number, mail address, company and role within the
+									company shows up again.</p>
+								<div id="chart12"></div>
+								<p data-aos="fade-down" data-aos-delay="250">The problems actually encountered by the respondents can be split in the following
+									categories: data on the cards becoming outdated, failing to find the person among
+									too many business cards, or the info on said cards being irrelevant anyway.</p>
+								<div id="chart13"></div>
+								<p data-aos="fade-down" data-aos-delay="250">As for how much the respondents would spend on an app that would resolve the problem,
+									a quarter wouldn't spend anything, a third would spend up to 2$, while another fifth
+									would spend between 3$ and 5$. In total, nearly three quarters of the responses are
+									up to 5$, and more than half are up to 3$.</p>
+								<div id="piechart6"></div>
+								</p>
+								<h4 data-aos="fade-down" data-aos-delay="250">Learning from possible customers</h3>
+									<p>
+										<img data-aos="fade-down" data-aos-delay="250" src="./resources/learning.png" alt="Bogdan" style="width:20%">
+									<p data-aos="fade-down" data-aos-delay="250">
+										As result of our validation campaign, the results from our surveys are very
+										encouraging. As a majority of our
+										possible client base, we have answers
+										from young adults and adults that are participating to social events more than
+										one time per week, business
+										events or casual events. In terms
+										of what information is exchanged between individuals, when they want to keep in
+										touch with each other
+										there are a couple of elements
+										that come to our attention:
+										<b>name, phone number and Facebook profile.</b>
+										All this information is saved on the phone of each individual in their phone's
+										contacts and on Facebook app.
+									</p>
+									<p data-aos="fade-down" data-aos-delay="250">
+										An encouraging fact for us is that people signaled a need in providing, through
+										an app, a personalised profile that
+										they want to share with other new peers in their
+										social context. From our data, they want to share the most:<b> a profile
+											picture, name, company name and phone
+											number.</b> Moreover, one of the most
+										important challenge that they face in big events is that they don't have the
+										opportunity to get to know
+										all people.
+									</p>
+									<p data-aos="fade-down" data-aos-delay="250">Some of the key challenges that we have observed with the traditional contact
+										card are: the information on the
+										card could become outdated and the card can be
+										easily lost. There is one thing to mention, it can exist an unfortunate moment
+										when a person doesn't have a card
+										when the cards are exchanged and this can become
+										frustrating for all the parts involved.
+									</p>
+									<p data-aos="fade-down" data-aos-delay="250">Presenting our solution, most of the people that answered the survey showed
+										interest for the idea even if the service
+										could be a charged product.
+									</p>
+									</p>
+									<h4 data-aos="fade-down" data-aos-delay="250">Making baby steps in the good direction</h3>
+										<p>
+											<img  data-aos="fade-down" data-aos-delay="250" src="./resources/baby.png" alt="Bogdan" style="width:20%">
+										<p data-aos="fade-down" data-aos-delay="250">After analyzing the survey data, we noticed people's desire to use a mobile
+											application that would allow a fast data transfer using NFC technology.
+										<p data-aos="fade-down" data-aos-delay="250">At the same time, after analyzing the survey data, we observed the need for
+											people to give up the use of business cards.</p>
+										<p data-aos="fade-down" data-aos-delay="250">We notice that the majority of people would prefer a mobile application, so
+											we need some time in developing a mobile application maybe compatible with
+											both Android and IOS.</p>
+										<p data-aos="fade-down" data-aos-delay="250">The next step is to implement the application and to combine our ideas with
+											the ideas of potential users who completed the survey.
+											After implementing the application, we will share the application with close
+											friends.
+											If we receive positive feedback, we will improve it and launch it for other
+											users as well.
+										</p>
+										</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Team 1 -->
+	<section class="pt-100 pb-100 bg-light text-center team_1">
+		<div class="container px-xl-0">
+			<div class="row justify-content-center">
+				<div class="col-xl-8 col-lg-10">
+					<h2 class="mb-20 small" data-aos="fade-down" data-aos-delay="0" id="team">
+						Our Awesome Team
+					</h2>
+					<div class="f-22 color-heading text-adaptive" data-aos="fade-down" data-aos-delay="250">
+						We have created a new product that will help designers, developers and companies create websites
+						for their startups quickly and easily.
+					</div>
+				</div>
+			</div>
+			<div class="mt-20 row justify-content-center">
+				<div class="mt-60 col-lg-4 col-md-7 col-sm-10" data-aos="fade-down" data-aos-delay="0">
+					<div class="radius10 pt-50 block">
+						<img src="./resources/bf.jpg" width="100px" srcset="i/team_1_img_1@2x.jpg 2x" alt=""
+							class="radius_full">
+						<div class="mt-25 mb-15 f-22 title">
+							Bogdan Cristian Firuti
+						</div>
+						<div class="f-14 semibold text-uppercase sp-20 color-heading">
+							Project Manager
+						</div>
+						<div class="mt-35 row no-gutters block_socials">
+							<div class="col-4 border_right">
+								<a href="#" class="link f-22 lh-60 color-heading" target="_blank">
+									<i class="fab fa-twitter">
+									</i>
+								</a>
+							</div>
+							<div class="col-4 border_right">
+								<a href="#" class="link f-22 lh-60 color-heading" target="_blank">
+									<i class="fab fa-facebook-square">
+									</i>
+								</a>
+							</div>
+							<div class="col-4">
+								<a href="#" class="link f-22 lh-60 color-heading" target="_blank">
+									<i class="far fa-lg fa-envelope" onclick="window.open('mailto:firutibogdan@gmail.com');">
+									</i>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="mt-60 col-lg-4 col-md-7 col-sm-10" data-aos="fade-down" data-aos-delay="250">
+					<div class="radius10 pt-50 block">
+						<img src="./resources/im.jpg" width="100px" srcset="i/team_1_img_2@2x.jpg 2x" alt=""
+							class="radius_full">
+						<div class="mt-25 mb-15 f-22 title">
+							Ionut Mihalache
+						</div>
+						<div class="f-14 semibold text-uppercase sp-20 color-heading">
+							Back-End Developer
+						</div>
+						<div class="mt-35 row no-gutters block_socials">
+							<div class="col-4 border_right">
+								<a href="#" class="link f-22 lh-60 color-heading" target="_blank">
+									<i class="fab fa-twitter">
+									</i>
+								</a>
+							</div>
+							<div class="col-4 border_right">
+								<a href="#" class="link f-22 lh-60 color-heading" target="_blank">
+									<i class="fab fa-facebook-square">
+									</i>
+								</a>
+							</div>
+							<div class="col-4">
+								<a href="#" class="link f-22 lh-60 color-heading" target="_blank">
+									<i class="far fa-lg fa-envelope" onclick="window.open('mailto:ipopescu46@gmail.com');">
+									</i>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="mt-60 col-lg-4 col-md-7 col-sm-10" data-aos="fade-down" data-aos-delay="500">
+					<div class="radius10 pt-50 block">
+						<img src="./resources/vv.jpg" width="100px" srcset="i/team_1_img_3@2x.jpg 2x" alt=""
+							class="radius_full">
+						<div class="mt-25 mb-15 f-22 title">
+							Vlad-Laurentiu-Florin Vrajitoru
+						</div>
+						<div class="f-14 semibold text-uppercase sp-20 color-heading">
+							Back-End Developer
+						</div>
+						<div class="mt-35 row no-gutters block_socials">
+							<div class="col-4 border_right">
+								<a href="#" class="link f-22 lh-60 color-heading" target="_blank">
+									<i class="fab fa-twitter">
+									</i>
+								</a>
+							</div>
+							<div class="col-4 border_right">
+								<a href="#" class="link f-22 lh-60 color-heading" target="_blank">
+									<i class="fab fa-facebook-square">
+									</i>
+								</a>
+							</div>
+							<div class="col-4">
+								<a href="#" class="link f-22 lh-60 color-heading" target="_blank">
+									<i class="far fa-lg fa-envelope" onclick="window.open('mailto:vladflorinvrajitoru@gmail.com');">
+									</i>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="mt-60 col-lg-4 col-md-7 col-sm-10" data-aos="fade-down" data-aos-delay="500">
+					<div class="radius10 pt-50 block">
+						<img src="./resources/po.jpg" width="100px" srcset="i/team_1_img_3@2x.jpg 2x" alt=""
+							class="radius_full">
+						<div class="mt-25 mb-15 f-22 title">
+							Paul-Stelian Olaru
+						</div>
+						<div class="f-14 semibold text-uppercase sp-20 color-heading">
+							Full Stack Developer
+						</div>
+						<div class="mt-35 row no-gutters block_socials">
+							<div class="col-4 border_right">
+								<a href="#" class="link f-22 lh-60 color-heading" target="_blank">
+									<i class="fab fa-twitter">
+									</i>
+								</a>
+							</div>
+							<div class="col-4 border_right">
+								<a href="#" class="link f-22 lh-60 color-heading" target="_blank">
+									<i class="fab fa-facebook-square">
+									</i>
+								</a>
+							</div>
+							<div class="col-4">
+								<a href="#" class="link f-22 lh-60 color-heading" target="_blank">
+									<i class="far fa-lg fa-envelope" onclick="window.open('mailto:paul_stelian.olaru@stud.acs.upb.ro');">
+									</i>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="mt-60 col-lg-4 col-md-7 col-sm-10" data-aos="fade-down" data-aos-delay="500">
+					<div class="radius10 pt-50 block">
+						<img src="./resources/cs.jpg" width="100px" srcset="i/team_1_img_3@2x.jpg 2x" alt=""
+							class="radius_full">
+						<div class="mt-25 mb-15 f-22 title">
+							Cristin Sirbu
+						</div>
+						<div class="f-14 semibold text-uppercase sp-20 color-heading">
+							Front-End Developer
+						</div>
+						<div class="mt-35 row no-gutters block_socials">
+							<div class="col-4 border_right">
+								<a href="#" class="link f-22 lh-60 color-heading" target="_blank">
+									<i class="fab fa-twitter">
+									</i>
+								</a>
+							</div>
+							<div class="col-4 border_right">
+								<a href="#" class="link f-22 lh-60 color-heading" target="_blank">
+									<i class="fab fa-facebook-square">
+									</i>
+								</a>
+							</div>
+							<div class="col-4">
+								<a href="#" class="link f-22 lh-60 color-heading" target="_blank">
+									<i class="far fa-lg fa-envelope" onclick="window.open('mailto:cristinsirbu@gmail.com');">
+									</i>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="mt-60 col-lg-4 col-md-7 col-sm-10" data-aos="fade-down" data-aos-delay="500">
+					<div class="radius10 pt-50 block">
+						<img src="./resources/sc.jpg" width="100px" srcset="i/team_1_img_3@2x.jpg 2x" alt=""
+							class="radius_full">
+						<div class="mt-25 mb-15 f-22 title">
+							Daniel-Serban Cozma
+						</div>
+						<div class="f-14 semibold text-uppercase sp-20 color-heading">
+							Front-End Developer
+						</div>
+						<div class="mt-35 row no-gutters block_socials">
+							<div class="col-4 border_right">
+								<a href="#" class="link f-22 lh-60 color-heading" target="_blank">
+									<i class="fab fa-twitter">
+									</i>
+								</a>
+							</div>
+							<div class="col-4 border_right">
+								<a href="#" class="link f-22 lh-60 color-heading" target="_blank">
+									<i class="fab fa-facebook-square">
+									</i>
+								</a>
+							</div>
+							<div class="col-4">
+								<a href="#" class="link f-22 lh-60 color-heading" target="_blank">
+									<i class="far fa-lg fa-envelope" onclick="window.open('mailto:cozmaserban@icloud.com');">
+									</i>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- forms alerts -->
+	<div class="alert alert-success alert-dismissible fixed-top alert-form-success" role="alert">
+		<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+				aria-hidden="true">&times;</span></button>
+		Thanks for your message!
+	</div>
+	<div class="alert alert-warning alert-dismissible fixed-top alert-form-check-fields" role="alert">
+		<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+				aria-hidden="true">&times;</span></button>
+		Please, fill in required fields.
+	</div>
+	<div class="alert alert-danger alert-dismissible fixed-top alert-form-error" role="alert">
+		<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+				aria-hidden="true">&times;</span></button>
+		<div class="message">An error occurred while sending data :( Please, check if your hosting supports PHP and
+			check how to set form data sending <a href="https://designmodo.com/startup/documentation/#form-handler"
+				target="_blank" class="link color-transparent-white">here</a>.</div>
+	</div>
+
+	
+	<!-- Bootstrap 4.5.2 JS -->
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+	<!-- Fancybox 3 jQuery plugin JS (Open images and video in popup) -->
+	<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+	<!-- 
+			Google maps JS API 
+			Don't forget to replace the key "AIzaSyDP6Ex5S03nvKZJZSvGXsEAi3X_tFkua4U" to your own! 
+			Learn how to get a key: https://help.designmodo.com/article/startup-google-maps-api/ 
+		-->
+	<script type="text/javascript"
+		src="https://maps.googleapis.com/maps/api/js?v=3&key=AIzaSyDP6Ex5S03nvKZJZSvGXsEAi3X_tFkua4U"></script>
+	<!-- Slick 1.8.1 jQuery plugin JS (Sliders) -->
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+	<!-- AOS 2.3.4 jQuery plugin JS (Animations) -->
+	<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+	<!-- Maskedinput jQuery plugin JS (Masks for input fields) -->
+	<script src="js/jquery.maskedinput.min.js"></script>
+	<!-- Startup JS (Custom js for all blocks) -->
+	<script src="js/script.js"></script>
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+	<script type="text/javascript">
+		// Load google charts
+		google.charts.load('current', { 'packages': ['corechart'] });
+		google.charts.setOnLoadCallback(drawChart);
+
+		// Draw the chart and set the chart values
+		function drawChart() {
+			var data = google.visualization.arrayToDataTable([
+				['Gender', 'Number of people'],
+				['Male', 51],
+				['Female', 35],
+			]);
+
+			var data1 = google.visualization.arrayToDataTable([
+				['Age', 'Number of people'],
+				['under 18', 0],
+				['18-24', 18],
+				['25-34', 10],
+				['35-44', 13],
+				['45-54', 3],
+				['over 55', 4],
+			]);
+
+			var data2 = google.visualization.arrayToDataTable([
+				['Events', 'Number of people'],
+				['once in a month', 9],
+				['once in two week', 21],
+				['once in a week', 13],
+				['many times a week', 32],
+				['not so often', 11],
+			]);
+
+			var data3 = google.visualization.arrayToDataTable([
+				['What do they want to exchange', 'Number of people'],
+				['profile picture', 0],
+				['name and surname', 70],
+				['phone number', 53],
+				['email', 25],
+				['fax', 1],
+				['company', 34],
+				['position', 31],
+				['Facebook', 44],
+				['LinkedIn', 12],
+				['Instagram', 30],
+				['Twitter', 2],
+				['Skype', 1],
+			]);
+
+			var data4 = google.visualization.arrayToDataTable([
+				['Keep', 'Number of people'],
+				['save info in phone agend', 82],
+				['note on a piece of paper', 0],
+				['note on physical agenda', 5],
+				['ask someone to note for you', 2],
+				['receive business card', 16],
+				['memorize them', 4],
+			]);
+
+			var data5 = google.visualization.arrayToDataTable([
+				['Difficulites', 'Number of people'],
+				['forgot to exchange data', 52],
+				['do not know all participants', 54],
+				['do not know the host', 14],
+				['do not know the type of event', 9],
+				['do not know how formal it is', 25],
+				['forgot the name of people', 1],
+				['beer missing', 1],
+				['people use facebook', 1],
+			]);
+
+			var data6 = google.visualization.arrayToDataTable([
+				['What do they want to exchange', 'Number of people'],
+				['profile picture', 66],
+				['name and surname', 81],
+				['phone number', 67],
+				['email', 61],
+				['fax', 3],
+				['company', 54],
+				['position', 47],
+				['Facebook', 27],
+				['LinkedIn', 36],
+				['Instagram', 19],
+				['Twitter', 3],
+				['Skype', 1],
+				['working experience', 1],
+			]);
+
+			var data7 = google.visualization.arrayToDataTable([
+				['Method', 'Number of people'],
+				['business card', 27],
+				['speaking', 10],
+				['mobile app', 56],
+				['flyer', 3],
+				['public profile', 43],
+				['qr', 1],
+			]);
+
+			var data8 = google.visualization.arrayToDataTable([
+				['Context', 'Number of people'],
+				['parties', 50],
+				['interviews', 47],
+				['business meetings', 51],
+				['when you first met a person', 42],
+				['conferences, volunteering activities', 1],
+				['meet-ups', 1],
+			]);
+
+			var data9 = google.visualization.arrayToDataTable([
+				['Meetings', 'Number of people'],
+				['0', 20],
+				['1-5', 37],
+				['6-15', 9],
+				['16-25', 7],
+				['over 25', 13],
+			]);
+
+			var data10 = google.visualization.arrayToDataTable([
+				['Business Cards used', 'Number of people'],
+				['0', 18],
+				['1-5', 38],
+				['6-15', 16],
+				['16-25', 2],
+				['over 25', 12],
+			]);
+
+			var data11 = google.visualization.arrayToDataTable([
+				['What did you do', 'Number of people'],
+				['stored it', 56],
+				['went to trash after writing down the info', 24],
+				['recycle', 14],
+				['did not get', 3],
+				['lost it', 1],
+			]);
+
+			var data12 = google.visualization.arrayToDataTable([
+				['Aspects', 'Number of people'],
+				['it makes a person important', 41],
+				['easy to be used', 44],
+				['attractive design', 23],
+				['keeps all the needed info about a person', 52],
+				['small and easy to store', 43],
+				['can be kept for a long period', 8],
+				['accessible price', 16],
+				['no reason', 1],
+				['tradition', 1],
+			]);
+
+			var data13 = google.visualization.arrayToDataTable([
+				['Disadvantages', 'Number of people'],
+				['environment pollution', 59],
+				['can not be associated with a person\'s iamge', 35],
+				['no relevant information', 4],
+				['the information can be outdated', 52],
+				['easy to loose', 3],
+				['too formal', 1],
+				['can intimidate other people', 1],
+				['hard to be managed', 1],
+			]);
+
+			var data14 = google.visualization.arrayToDataTable([
+				['What do they want to exchange', 'Number of people'],
+				['profile picture', 4],
+				['name and surname', 75],
+				['phone number', 61],
+				['email', 60],
+				['fax', 2],
+				['company', 55],
+				['position', 51],
+				['Facebook', 12],
+				['LinkedIn', 24],
+				['Instagram', 2],
+				['Twitter', 1],
+				['Skype', 3],
+				['not the case/not needed', 3],
+			]);
+
+			var data15 = google.visualization.arrayToDataTable([
+				['Difficulites', 'Number of people'],
+				['one of the people did not posses a busines card', 37],
+				['had to write down the info', 37],
+				['forgot important aspects about the interlocutor', 50],
+				['shyness', 1],
+				['none/not the case', 6],
+			]);
+
+			var data16 = google.visualization.arrayToDataTable([
+				['Relevant info', 'Number of people'],
+				['name and surname', 59],
+				['phone number', 54],
+				['email', 43],
+				['fax', 3],
+				['company', 39],
+				['position', 24],
+				['Facebook', 5],
+				['LinkedIn', 10],
+				['Instagram', 2],
+				['Twitter', 0],
+				['Skype', 1],
+				['offered services', 1],
+				['not the case/not needed', 4],
+			]);
+
+			var data17 = google.visualization.arrayToDataTable([
+				['Difficulites', 'Number of people'],
+				['no relevant info on the business card', 16],
+				['too many business cards to search into', 35],
+				['can not find the needed person', 32],
+				['people changed their contact info', 44],
+				['people changed their working place', 36],
+				['not enough time for searching', 27],
+				['lost cards/people not using them', 4],
+				['not needed to search/no problems', 6],
+			]);
+
+			var data18 = google.visualization.arrayToDataTable([
+				['Sum of money', 'Number of people'],
+				['0$', 22],
+				['1-2$', 27],
+				['3-5$', 14],
+				['5-10$', 13],
+				['over 10$', 7],
+				['as a user 0$, as a developper 10-100$', 2],
+				['do not trust technology (GDPR)', 1],
+			]);
+
+			var options1 = {
+				legend: { position: "none" },
+				title: "What is the main information exchanged with a new connection at such an event?"
+			};
+
+			var options2 = {
+				legend: { position: "none" },
+				title: "How do you store new contact\'s data"
+			};
+
+			var options3 = {
+				legend: { position: "none" },
+				title: "Taking part in such events, what are the difficulties you figured?"
+			};
+
+			var options4 = {
+				legend: { position: "none" },
+				title: "What is the main information that a personal profile should include?"
+			};
+
+			var options5 = {
+				legend: { position: "none" },
+				title: "What would be the simplest method to share this custom profile?"
+			};
+
+			var options6 = {
+				legend: { position: "none" },
+				title: "What was the context when you felt the need to share your personal information?"
+			};
+
+			var options7 = {
+				legend: { position: "none" },
+				title: "What did you do with a business card after you received it?"
+			};
+
+			var options8 = {
+				legend: { position: "none" },
+				title: "What do you think are the aspects that users like about business cards?"
+			};
+
+			var options9 = {
+				legend: { position: "none" },
+				title: "What do you think are the disadvantages implied by using business cards?"
+			};
+
+			var options10 = {
+				legend: { position: "none" },
+				title: "What data did you exchange during a business meeting with your interlocutor?"
+			};
+
+			var options11 = {
+				legend: { position: "none" },
+				title: "What were the problems that you spotted during this formal exchange?"
+			};
+
+			var options12 = {
+				legend: { position: "none" },
+				title: "What is the main information you have been looking for in the business cards?"
+			};
+
+			var options13 = {
+				legend: { position: "none" },
+				title: "What problems did you face when you searched in the business cards?"
+			};
+
+			var pie_options1 = {
+				title: "Gender"
+			};
+
+			var pie_options2 = {
+				title: "Age cathegory"
+			};
+
+			var pie_options3 = {
+				title: "How often do you take part into social events? (gatherings, meetings, business meetings)"
+			};
+
+			var pie_options4 = {
+				title: "Number of business meetings you took part:"
+			};
+
+			var pie_options5 = {
+				title: "How many business cards have you used up to now? (yours/received)"
+			};
+
+			var pie_options6 = {
+				title: "How much would you like to pay for an application that can simplify this task?"
+			};
+
+			var view1 = new google.visualization.DataView(data3);
+			var view2 = new google.visualization.DataView(data4);
+			var view3 = new google.visualization.DataView(data5);
+			var view4 = new google.visualization.DataView(data6);
+			var view5 = new google.visualization.DataView(data7);
+			var view6 = new google.visualization.DataView(data8);
+			var view7 = new google.visualization.DataView(data11);
+			var view8 = new google.visualization.DataView(data12);
+			var view9 = new google.visualization.DataView(data13);
+			var view10 = new google.visualization.DataView(data14);
+			var view11 = new google.visualization.DataView(data15);
+			var view12 = new google.visualization.DataView(data16);
+			var view13 = new google.visualization.DataView(data17);
+
+			var chart1 = new google.visualization.BarChart(document.getElementById("chart1"));
+			chart1.draw(view1, options1);
+			var chart2 = new google.visualization.BarChart(document.getElementById("chart2"));
+			chart2.draw(view2, options2);
+			var chart3 = new google.visualization.BarChart(document.getElementById("chart3"));
+			chart3.draw(view3, options3);
+			var chart4 = new google.visualization.BarChart(document.getElementById("chart4"));
+			chart4.draw(view4, options4);
+			var chart5 = new google.visualization.BarChart(document.getElementById("chart5"));
+			chart5.draw(view5, options5);
+			var chart6 = new google.visualization.BarChart(document.getElementById("chart6"));
+			chart6.draw(view6, options6);
+			var chart7 = new google.visualization.BarChart(document.getElementById("chart7"));
+			chart7.draw(view7, options7);
+			var chart8 = new google.visualization.BarChart(document.getElementById("chart8"));
+			chart8.draw(view8, options8);
+			var chart9 = new google.visualization.BarChart(document.getElementById("chart9"));
+			chart9.draw(view9, options9);
+			var chart10 = new google.visualization.BarChart(document.getElementById("chart10"));
+			chart10.draw(view10, options10);
+			var chart11 = new google.visualization.BarChart(document.getElementById("chart11"));
+			chart11.draw(view11, options11);
+			var chart12 = new google.visualization.BarChart(document.getElementById("chart12"));
+			chart12.draw(view12, options12);
+			var chart13 = new google.visualization.BarChart(document.getElementById("chart13"));
+			chart13.draw(view13, options13);
+
+			var piechart1 = new google.visualization.PieChart(document.getElementById('piechart1'));
+			piechart1.draw(data, pie_options1);
+			var piechart2 = new google.visualization.PieChart(document.getElementById('piechart2'));
+			piechart2.draw(data1, pie_options2);
+			var piechart3 = new google.visualization.PieChart(document.getElementById('piechart3'));
+			piechart3.draw(data2, pie_options3);
+			var piechart4 = new google.visualization.PieChart(document.getElementById('piechart4'));
+			piechart4.draw(data9, pie_options4);
+			var piechart5 = new google.visualization.PieChart(document.getElementById('piechart5'));
+			piechart5.draw(data10, pie_options5);
+			var piechart6 = new google.visualization.PieChart(document.getElementById('piechart6'));
+			piechart6.draw(data18, pie_options6);
+		}
+	</script>
+</body>
+
 </html>
