@@ -15,16 +15,36 @@ doc.addPage();
 doc.addPage();
 doc.addPage();
 doc.addPage();
+doc.addPage();
+doc.addPage();
+
+function runLoggedOutHeader(doc) {
+	doc
+	.lineWidth(70).lineCap('round').moveTo(85,70).lineTo(315,70).stroke("#338099")
+}
+
+function runHeader(doc) {
+	doc
+	.lineWidth(70).lineCap('round').moveTo(85,70).lineTo(315,70).stroke("#338099")
+	.lineWidth(50).lineCap('butt').moveTo(50,90).lineTo(350,90).stroke("#338099")
+	.lineWidth(8).lineCap('round').moveTo(65,78).lineTo(90,78).stroke('#000')
+	.lineWidth(8).lineCap('round').moveTo(65,90).lineTo(90,90).stroke('#000')
+	.lineWidth(8).lineCap('round').moveTo(65,102).lineTo(90,102).stroke('#000')
+	.image('img/logout.png', 290, 70, {width: 45, height: 45})
+	.circle(251.5, 92, 18).fillAndStroke('#006080')
+	.image('img/me.png', 230, 71, {width: 43, height: 43})
+	.link(230, 71, 43, 43, 12)
+	.link(290, 70, 45, 45, 0)
+	.link(55, 68, 45, 45, 3)
+}
 
 //login page
 doc.switchToPage(0);
 doc
+
+	runLoggedOutHeader(doc) ; doc
 	// background image
 	.image('img/bgnd.jpg', 50, 70, {width: 300, height:570})
-
-	// header
-	.lineWidth(70).lineCap('round').moveTo(85,70).lineTo(315,70).stroke("#000")
-	.lineWidth(60).lineCap('butt').moveTo(50,95).lineTo(350,95).stroke("#000")
 
 	// footer
 	.lineWidth(50).lineCap('round').moveTo(75,660).lineTo(325,660).stroke("#338099")
@@ -61,13 +81,10 @@ doc
 
 doc.switchToPage(1);
 doc
+
+	runLoggedOutHeader(doc) ; doc
 	// background image
 	.image('img/bgnd.jpg', 50, 70, {width: 300, height:570})
-
-
-	// header
-	.lineWidth(70).lineCap('round').moveTo(85,70).lineTo(315,70).stroke("#000")
-	.lineWidth(60).lineCap('butt').moveTo(50,95).lineTo(350,95).stroke("#000")
 
 	// footer
 	.lineWidth(50).lineCap('round').moveTo(75,660).lineTo(325,660).stroke("#338099")
@@ -80,6 +97,7 @@ doc
 	.lineWidth(30).lineCap('round').moveTo(105,415).lineTo(210,415).stroke("#338099")
 	.lineWidth(30).lineCap('round').moveTo(105,455).lineTo(210,455).stroke("#338099")
 	.lineWidth(30).lineCap('round').moveTo(105,495).lineTo(210,495).stroke("#338099")
+	.lineWidth(30).lineCap('round').moveTo(105,535).lineTo(210,535).stroke("#338099")
 	.lineWidth(30).lineCap('round').moveTo(115,605).lineTo(270,605).stroke("#338099")
 
 	.circle(200, 240, 80).lineWidth(2).fillOpacity(0.2).fillAndStroke("red", "#000")
@@ -88,13 +106,16 @@ doc
 	.fontSize(15).fillColor("#ffffff").text("Password", 100, 370)
 	.fontSize(15).fillColor("#ffffff").text("Confirm Password", 100, 410)
 	.fontSize(15).fillColor("#ffffff").text("Facebook", 100, 450)
-	.fontSize(15).fillColor("#ffffff").text("...", 100, 490)
+	.fontSize(15).fillColor("#ffffff").text("Twitter", 100, 490)
+	.fontSize(15).fillColor("#ffffff").text("(+4) 0700 000 000", 100, 530)
+
 	.fontSize(15).fillColor("#00ff00").text("Create and Share Cards", 110, 600)
 
 	.image('img/me.png', 120, 160, {width: 160})
 	.image('img/lock.png', 60, 363, {width: 25})
 	.image('img/facebook.png', 60, 443, {width: 25})
 	.image('img/twitter.png', 60, 483, {width: 25})
+	.image('img/call.png', 60, 523, {width: 25})
 
 
 	
@@ -104,16 +125,12 @@ doc
 	// clickable area
 	.link(100, 585, 190, 40, 3);
 
-
 doc.switchToPage(2);
 doc
+
+	runLoggedOutHeader(doc) ; doc
 	// background image
 	.image('img/bgnd.jpg', 50, 70, {width: 300, height:570})
-
-
-	// header
-	.lineWidth(70).lineCap('round').moveTo(85,70).lineTo(315,70).stroke("#000")
-	.lineWidth(60).lineCap('butt').moveTo(50,95).lineTo(350,95).stroke("#000")
 
 	// footer
 	.lineWidth(50).lineCap('round').moveTo(75,660).lineTo(325,660).stroke("#338099")
@@ -146,11 +163,9 @@ doc
 	.image('img/bgnd.jpg', 50, 70, {width: 300, height:570})
 
 	// middle line
-	.lineWidth(10).path('M 200,120 L 200,680').stroke("#338099")
+	.lineWidth(10).path('M 200,100 L 200,680').stroke("#338099")
 
-	// header
-	.lineWidth(70).lineCap('round').moveTo(85,70).lineTo(315,70).stroke("#000")
-	.lineWidth(60).lineCap('butt').moveTo(50,95).lineTo(350,95).stroke("#000")
+	runHeader(doc) ; doc
 
 	// footer
 	.lineWidth(50).lineCap('round').moveTo(75,660).lineTo(325,660).stroke("#338099")
@@ -167,8 +182,8 @@ doc
 	.image('img/phone.png', 0, 15, {width: 400})
 
 	// clickable areas
-	.link(50, 125, 145, 510, 10)
-	.link(200, 125, 145, 510, 4);
+	.link(50, 120, 145, 510, 10)
+	.link(200, 120, 145, 510, 4);
 
 // CONNECT PAGE
 doc.switchToPage(4);
@@ -176,9 +191,7 @@ doc
 	// background image
 	.image('img/bgnd.jpg', 50, 70, {width: 300, height:570})
 
-	// header
-	.lineWidth(70).lineCap('round').moveTo(85,70).lineTo(315,70).stroke("#000")
-	.lineWidth(60).lineCap('butt').moveTo(50,95).lineTo(350,95).stroke("#000")
+	runHeader(doc) ; doc
 
 	// footer
 	.lineWidth(50).lineCap('round').moveTo(75,660).lineTo(325,660).stroke("#338099")
@@ -241,9 +254,7 @@ doc
 	// background image
 	.image('img/bgnd.jpg', 50, 70, {width: 300, height:570})
 
-	// header
-	.lineWidth(70).lineCap('round').moveTo(85,70).lineTo(315,70).stroke("#000")
-	.lineWidth(60).lineCap('butt').moveTo(50,95).lineTo(350,95).stroke("#000")
+	runHeader(doc) ; doc
 
 	// footer
 	.lineWidth(50).lineCap('round').moveTo(75,660).lineTo(325,660).stroke("#338099")
@@ -306,9 +317,7 @@ doc
 	// background image
 	.image('img/bgnd.jpg', 50, 70, {width: 300, height:570})
 
-	// header
-	.lineWidth(70).lineCap('round').moveTo(85,70).lineTo(315,70).stroke("#000")
-	.lineWidth(60).lineCap('butt').moveTo(50,95).lineTo(350,95).stroke("#000")
+	runHeader(doc) ; doc
 
 	// footer
 	.lineWidth(50).lineCap('round').moveTo(75,660).lineTo(325,660).stroke("#338099")
@@ -333,9 +342,7 @@ doc
 	// background image
 	.image('img/bgnd.jpg', 50, 70, {width: 300, height:570})
 
-	// header
-	.lineWidth(70).lineCap('round').moveTo(85,70).lineTo(315,70).stroke("#000")
-	.lineWidth(60).lineCap('butt').moveTo(50,95).lineTo(350,95).stroke("#000")
+	runHeader(doc) ; doc
 
 	// footer
 	.lineWidth(50).lineCap('round').moveTo(75,660).lineTo(325,660).stroke("#338099")
@@ -360,9 +367,7 @@ doc
 	// background image
 	.image('img/bgnd.jpg', 50, 70, {width: 300, height:570})
 
-	// header
-	.lineWidth(70).lineCap('round').moveTo(85,70).lineTo(315,70).stroke("#000")
-	.lineWidth(60).lineCap('butt').moveTo(50,95).lineTo(350,95).stroke("#000")
+	runHeader(doc) ; doc
 
 	// footer
 	.lineWidth(50).lineCap('round').moveTo(75,660).lineTo(325,660).stroke("#338099")
@@ -387,9 +392,7 @@ doc
 	// background image
 	.image('img/bgnd.jpg', 50, 70, {width: 300, height:570})
 
-	// header
-	.lineWidth(70).lineCap('round').moveTo(85,70).lineTo(315,70).stroke("#000")
-	.lineWidth(60).lineCap('butt').moveTo(50,95).lineTo(350,95).stroke("#000")
+	runHeader(doc) ; doc
 
 	// footer
 	.lineWidth(50).lineCap('round').moveTo(75,660).lineTo(325,660).stroke("#338099")
@@ -414,9 +417,7 @@ doc
 	// background image
 	.image('img/bgnd.jpg', 50, 70, {width: 300, height:570})
 
-	// header
-	.lineWidth(70).lineCap('round').moveTo(85,70).lineTo(315,70).stroke("#000")
-	.lineWidth(60).lineCap('butt').moveTo(50,95).lineTo(350,95).stroke("#000")
+	runHeader(doc) ; doc
 
 	// footer
 	.lineWidth(50).lineCap('round').moveTo(75,660).lineTo(325,660).stroke("#338099")
@@ -432,6 +433,86 @@ doc
 	.image('img/me.png', 120, 160, {width: 160})
 	.image('img/qmark.png', 80, 440, {width: 250})
 
+	// frame
+	.image('img/phone.png', 0, 15, {width: 400})
+
+// PAGE FEEDBACK
+doc.switchToPage(11);
+doc
+	// background image
+	.image('img/bgnd.jpg', 50, 70, {width: 300, height:570})
+
+	runHeader(doc) ; doc
+
+	// footer
+	.lineWidth(50).lineCap('round').moveTo(75,660).lineTo(325,660).stroke("#338099")
+	.lineWidth(30).lineCap('butt').moveTo(50,650).lineTo(350,650).stroke("#338099")
+	.fontSize(20).fillColor("#205060").text("2020", 175, 645)
+
+	.image('img/email.png', 60, 188, {width: 25})
+
+	.lineWidth(30).lineCap('round').moveTo(105,200).lineTo(210,200).stroke("#338099")
+	.fontSize(15).fillColor("#ffffff").text("Email address", 100, 195)
+
+	//.lineWidth(100).lineCap('square').moveTo(155,375).lineTo(210,375).stroke("#338099")
+	.rect(105, 250, 190, 300).fillAndStroke('#338099')
+	.fontSize(15).fillColor("#ffffff").text("Send us your thoughts...", 105, 250)
+
+	.fontSize(20).fillColor('#ffffff').text("Feedback", 100, 150)
+
+	.lineWidth(30).lineCap('round').moveTo(115,605).lineTo(270,605).stroke("#338099")
+	.fontSize(15).fillColor("#ffffff").text("Submit Feedback", 110, 600, {width: 165, align: 'center'})
+
+	.link(100, 600, 185, 15, 12)
+
+	// frame
+	.image('img/phone.png', 0, 15, {width: 400})
+
+doc.switchToPage(12);
+doc
+	// background image
+	.image('img/bgnd.jpg', 50, 70, {width: 300, height:570})
+
+	runHeader(doc) ; doc
+
+	// footer
+	.lineWidth(50).lineCap('round').moveTo(75,660).lineTo(325,660).stroke("#338099")
+	.lineWidth(30).lineCap('butt').moveTo(50,650).lineTo(350,650).stroke("#338099")
+	.fontSize(20).fillColor("#205060").text("2020", 175, 645)
+	
+	// create account
+	.lineWidth(20).lineCap('round').moveTo(110,335).lineTo(280,335).stroke("#338099")
+	.lineWidth(30).lineCap('round').moveTo(105,375).lineTo(210,375).stroke("#338099")
+	.lineWidth(30).lineCap('round').moveTo(105,415).lineTo(210,415).stroke("#338099")
+	.lineWidth(30).lineCap('round').moveTo(105,455).lineTo(210,455).stroke("#338099")
+	.lineWidth(30).lineCap('round').moveTo(105,495).lineTo(210,495).stroke("#338099")
+	.lineWidth(30).lineCap('round').moveTo(105,535).lineTo(210,535).stroke("#338099")
+	.lineWidth(25).lineCap('round').moveTo(115,575).lineTo(270,575).stroke("#338099")
+	.lineWidth(25).lineCap('round').moveTo(115,612).lineTo(270,612).stroke("#338099")
+
+
+	.circle(200, 240, 80).lineWidth(2).fillOpacity(0.2).fillAndStroke("red", "#000")
+	.fillOpacity(1)
+	.fontSize(15).fillColor("#00ff00").text("Upload a stunning picture", 110, 330)
+	.fontSize(15).fillColor("#ffffff").text("New Password", 100, 370)
+	.fontSize(15).fillColor("#ffffff").text("Confirm Password", 100, 410)
+	.fontSize(15).fillColor("#ffffff").text("Facebook", 100, 450)
+	.fontSize(15).fillColor("#ffffff").text("Twitter", 100, 490)
+	.fontSize(15).fillColor("#ffffff").text("(+4) 0700 000 000", 100, 530)
+
+	.fontSize(15).fillColor("#00ff00").text("Save profile", 110, 570, {width: 165, align: 'center'})
+	.fontSize(15).fillColor("#ffffff").text("Feedback", 110, 607, {width: 165, align: 'center'})
+
+	//.link(220,590,90,30,11)
+	.link(100, 560, 185, 20, 3)
+	.link(100, 597, 185, 20, 11)
+
+	.image('img/me.png', 120, 160, {width: 160})
+	.image('img/lock.png', 60, 363, {width: 25})
+	.image('img/facebook.png', 60, 443, {width: 25})
+	.image('img/twitter.png', 60, 483, {width: 25})
+	.image('img/call.png', 60, 523, {width: 25})
+	
 	// frame
 	.image('img/phone.png', 0, 15, {width: 400})
 
